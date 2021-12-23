@@ -22,18 +22,4 @@ public class ProjectRequestListener implements HttpSessionListener {
         System.out.println("Session from " + servletRequest.getContextPath()
                 + " was destroyed.");
     }
-
-//    @Override
-//    public void requestDestroyed(ServletRequestEvent sre) {
-//        HttpServletRequest servletRequest = (HttpServletRequest) sre.getServletRequest();
-//        System.out.println("Request from " + servletRequest.getContextPath()
-//                + " was destroyed.");
-//    }
-
-//    @Override
-//    public void requestInitialized(ServletRequestEvent sre) {
-//        HttpServletRequest servletRequest = (HttpServletRequest) sre.getServletRequest();
-//        System.out.println("Request from " + servletRequest.getContextPath()
-//                + " was created.");
-//    }
 }
