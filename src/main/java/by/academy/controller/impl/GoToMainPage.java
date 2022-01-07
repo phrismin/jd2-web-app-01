@@ -18,9 +18,9 @@ public class GoToMainPage implements Command {
         String userName = (String) req.getSession().getAttribute("userName");
         if (userName.equals("Vasyl")) {
             List<Car> carList = new ArrayList<>();
-            carList.add(new Car("Passenger", "VW", "50"));
-            carList.add(new Car("SUV", "Toyota", "120"));
-            carList.add(new Car("Cabriolet", "Mercedes", "150"));
+//            carList.add(new Car("Passenger", "VW", "50"));
+//            carList.add(new Car("SUV", "Toyota", "120"));
+//            carList.add(new Car("Cabriolet", "Mercedes", "150"));
 
             req.setAttribute("cars", carList);
         }

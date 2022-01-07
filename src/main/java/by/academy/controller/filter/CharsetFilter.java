@@ -1,4 +1,4 @@
-package by.academy.filter;
+package by.academy.controller.filter;
 
 import javax.servlet.*;
 import java.io.IOException;
