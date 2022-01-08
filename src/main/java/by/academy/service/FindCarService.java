@@ -1,13 +1,14 @@
 package by.academy.service;
 
 import by.academy.entity.Car;
+import by.academy.entity.CarClass;
 
 import java.util.List;
 
 public interface FindCarService {
 
-    List<Car> showAllCars(String classCar);
+    List<Car> findAllCars(CarClass carClass);
 
-    Car showCar(String carInfo);
+    Car findByCar(String carInfo);
 
 }

@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface FindUserService {
 
-    List<User> showAllUsers();
+    List<User> findAllUsers();
 
-    User showUser();
+    User findByUser(String name);
 
 }

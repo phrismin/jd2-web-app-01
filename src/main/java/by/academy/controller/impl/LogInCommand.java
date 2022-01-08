@@ -3,6 +3,9 @@ package by.academy.controller.impl;
 
 import by.academy.controller.Command;
 import by.academy.service.ServiceFactory;
+import by.academy.service.UserService;
+import by.academy.service.exception.ServiceException;
+import by.academy.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,27 +23,29 @@ public class LogInCommand implements Command {
         String password = req.getParameter("psw");
         System.out.println(login + " " + password);
 
-        boolean flag = true; //stub
         String userName = "Vasyl";
         String errorMessage = "Please, check your login, email and password";
         String logInfo = "Hello";
         String role;
 
-        ServiceFactory factory = new ServiceFactory();
+        ServiceFactory serviceFactory = ServiceFactory.getInstance();
+        UserService userService = serviceFactory.getUserService();
 
-//
-//        try {
-//
-//        }
+        try {
+            role = userService.authorization(login, password);
 
-        HttpSession session = req.getSession();
-        session.setAttribute("userName", userName);
-        session.setAttribute("role", "user");
+            HttpSession session = req.getSession();
+            if ("".equals(role)) {
+                session.setAttribute("userName", userName);
+                session.setAttribute("role", role);
+                resp.sendRedirect("controller?command=GO_TO_MAIN_PAGE&" +
+                        "loginationInfo=" + logInfo);
+            } else {
+                resp.sendRedirect("controller?command=GO_TO_INDEX_PAGE&" +
+                        "errorMessage=" + errorMessage);
+            }
 
-        if (flag) {
-            resp.sendRedirect("controller?command=GO_TO_MAIN_PAGE&" +
-                    "loginationInfo=" + logInfo);
-        } else {
+        } catch (ServiceException e) {
             resp.sendRedirect("controller?command=GO_TO_INDEX_PAGE&" +
                     "errorMessage=" + errorMessage);
         }

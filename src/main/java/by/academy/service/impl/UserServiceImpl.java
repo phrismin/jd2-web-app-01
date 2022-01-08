@@ -3,8 +3,8 @@ package by.academy.service.impl;
 import by.academy.dao.DAOFactory;
 import by.academy.dao.UserDAO;
 import by.academy.dao.exception.DAOException;
-import by.academy.service.UserService;
 import by.academy.service.exception.ServiceException;
+import by.academy.service.UserService;
 
 public class UserServiceImpl implements UserService {
     @Override
@@ -19,7 +19,8 @@ public class UserServiceImpl implements UserService {
         } catch (DAOException e) {
             throw new ServiceException(e);
         }
-        return "admin";
+
+        return role;
     }
 
     @Override

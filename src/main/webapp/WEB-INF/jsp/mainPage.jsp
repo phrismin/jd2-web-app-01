@@ -11,11 +11,11 @@
         <c:set var="logInfo" scope="request" value="${param.loginationInfo}"/>
         <c:set var="regInfo" scope="request" value="${param.registrationInfo}"/>
         <c:set var="userName" scope="session" value="${sessionScope.userName}"/>
-        <c:set var="role" scope="session" value="${sessionScope.role}"/>
+        <c:set var="userRole" scope="session" value="${sessionScope.userRole}"/>
 
-        <c:if test="${role == 'user' && userName != null}" var="testIf">
+        <c:if test="${userRole == 'user' && userName != null}" var="testIf">
             <h3>
-                <c:out value="${logInfo} ${userName}(${role})"/>
+                <c:out value="${logInfo} ${userName}(${userRole})"/>
             </h3>
         </c:if>
 

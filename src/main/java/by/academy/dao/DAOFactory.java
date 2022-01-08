@@ -1,5 +1,7 @@
 package by.academy.dao;
 
+import by.academy.dao.impl.SQLFindCarDAO;
+import by.academy.dao.impl.SQLFineDAO;
 import by.academy.dao.impl.SQLUserDAO;
 
 public class DAOFactory {
@@ -7,12 +9,22 @@ public class DAOFactory {
     private static final DAOFactory instance = new DAOFactory();
 
     private final UserDAO userDAO = new SQLUserDAO();
+    private final FineDAO fineDAO = new SQLFineDAO();
+    private final FindCarDAO findCarDAO = new SQLFindCarDAO();
 
     public DAOFactory() {
     }
 
     public static DAOFactory getInstance() {
         return instance;
+    }
+
+    public FineDAO getFineDAO() {
+        return fineDAO;
+    }
+
+    public FindCarDAO getFindCarDAO() {
+        return findCarDAO;
     }
 
     public UserDAO getUserDAO() {
