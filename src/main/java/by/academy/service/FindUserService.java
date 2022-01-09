@@ -8,6 +8,8 @@ public interface FindUserService {
 
     List<User> findAllUsers();
 
-    User findByUser(String name);
+    User findById();
+
+    List<User> findByName();
 
 }

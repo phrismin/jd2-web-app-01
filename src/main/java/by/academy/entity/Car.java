@@ -21,7 +21,7 @@ public class Car {
     public Car() {
     }
 
-    public Car(String brand, String model, Enum carClass, Date dateOfIssue, Enum color,
+    public Car(String brand, String model, CarClass carClass, Date dateOfIssue, Enum color,
                Enum bodyType, Double engineCapacity, Enum fuelType, String fuelConsumption,
                Enum transmission, List<String> options, String vinCode) {
         this.brand = brand;

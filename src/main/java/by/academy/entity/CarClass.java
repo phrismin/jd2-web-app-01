@@ -2,7 +2,7 @@ package by.academy.entity;
 
 public enum CarClass {
 
-    BUDGET, MIDDLE, BUSINESS, PREMIUM, SUV, CONVERTIBLE;
+    BUDGET, MIDDLE, BUSINESS, PREMIUM, SUV, CONVERTIBLE, EXCLUSIVE;
 
     public static CarClass fromValue(int value) {
         for (CarClass carClass : CarClass.values()) {

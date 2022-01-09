@@ -12,7 +12,12 @@ public class FindUserServiceImpl implements FindUserService {
     }
 
     @Override
-    public User findByUser(String name) {
+    public User findById() {
+        return null;
+    }
+
+    @Override
+    public List<User> findByName() {
         return null;
     }
 }
