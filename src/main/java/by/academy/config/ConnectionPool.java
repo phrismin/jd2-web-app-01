@@ -5,21 +5,34 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Executor;
 
-public class ConnectionPool {
-    private BlockingDeque<Connection> connectionQueue;
-    private BlockingDeque<Connection> givenAwayConQueue;
+public final class ConnectionPool {
+    private static final ConnectionPool instance;
 
-    private String driverName;
-    private String url;
-    private String user;
-    private String password;
+    static {
+        try {
+            instance = new ConnectionPool();
+        } catch (ConnectionPoolException e) {
+            throw new RuntimeException("ConnectionPoolException", e);
+        }
+    }
+
+    private BlockingQueue<Connection> connectionQueue;
+    private BlockingQueue<Connection> givenAwayConQueue;
+
+    private final String driverName;
+    private final String url;
+    private final String user;
+    private final String password;
     private int poolSize;
 
-    private ConnectionPool() {
+    public static ConnectionPool getInstance() {
+        return instance;
+    }
+
+    private ConnectionPool() throws ConnectionPoolException {
         DBResourceManager dbResourceManager = DBResourceManager.getInstance();
         driverName = dbResourceManager.getValue(DBParameter.DB_DRIVER);
         url = dbResourceManager.getValue(DBParameter.DB_URL);
@@ -30,22 +43,25 @@ public class ConnectionPool {
         } catch (NumberFormatException e) {
             poolSize = 5;
         }
+
+        initPoolData();
     }
 
-    public void initPoolData() throws ConnectionPoolException {
+    private void initPoolData() throws ConnectionPoolException {
         Locale.setDefault(Locale.ENGLISH);
 
         try {
             Class.forName(driverName);
 
-            givenAwayConQueue = new ArrayBlockingQueue<Connection>(poolSize);
-            connectionQueue = new ArrayBlockingQueue<Connection>(poolSize);
+            givenAwayConQueue = new ArrayBlockingQueue<>(poolSize);
+            connectionQueue = new ArrayBlockingQueue<>(poolSize);
 
             for (int i = 0; i < poolSize; i++) {
                 Connection connection = DriverManager.getConnection(url, user, password);
                 PooledConnection pooledConnection = new PooledConnection(connection);
                 connectionQueue.add(pooledConnection);
             }
+
         } catch (SQLException e) {
             throw new ConnectionPoolException("SQLException on ConnectionPool", e);
         } catch (ClassNotFoundException e) {
