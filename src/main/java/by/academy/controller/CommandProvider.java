@@ -19,7 +19,7 @@ public final class CommandProvider {
         commands.put("GO_TO_MAIN_PAGE", new GoToMainPage());
     }
 
-    public final Command getCommand(String commandName) {
+    public Command getCommand(String commandName) {
         Command command = commands.get(commandName);
         return command;
     }

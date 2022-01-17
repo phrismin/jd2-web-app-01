@@ -1,7 +1,6 @@
 package by.academy.entity;
 
 public enum ReservationStatus {
-
     NEW, APPROVE, RESERVE, REJECT;
 
     public static ReservationStatus fromValue(int value) {

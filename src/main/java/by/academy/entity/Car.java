@@ -4,38 +4,50 @@ import java.util.Date;
 import java.util.List;
 
 public class Car {
+    private Long id;
     private String brand;
     private String model;
-    private Enum carClass;
+    private CarClass carClass;
     private Date dateOfIssue;
-    private Enum color;
-    private Enum bodyType;
+    private String transmission;
+    private String color;
+    private BodyType bodyType;
     private Double engineCapacity;
-    private Enum fuelType;
+    private String fuelType;
     private String fuelConsumption;
-    private Enum transmission;
+    private String description;
     private List<String> options;
     private String vinCode;
-
 
     public Car() {
     }
 
-    public Car(String brand, String model, CarClass carClass, Date dateOfIssue, Enum color,
-               Enum bodyType, Double engineCapacity, Enum fuelType, String fuelConsumption,
-               Enum transmission, List<String> options, String vinCode) {
+    public Car(Long id, String brand, String model, CarClass carClass, Date dateOfIssue,
+               String transmission, String color, BodyType bodyType, Double engineCapacity, String fuelType,
+               String fuelConsumption, String description, List<String> options, String vinCode) {
+        this.id = id;
         this.brand = brand;
         this.model = model;
         this.carClass = carClass;
         this.dateOfIssue = dateOfIssue;
+        this.transmission = transmission;
         this.color = color;
         this.bodyType = bodyType;
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
         this.fuelConsumption = fuelConsumption;
-        this.transmission = transmission;
+        this.description = description;
         this.options = options;
         this.vinCode = vinCode;
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getBrand() {
@@ -54,11 +66,11 @@ public class Car {
         this.model = model;
     }
 
-    public Enum getCarClass() {
+    public CarClass getCarClass() {
         return carClass;
     }
 
-    public void setCarClass(Enum carClass) {
+    public void setCarClass(CarClass carClass) {
         this.carClass = carClass;
     }
 
@@ -70,19 +82,27 @@ public class Car {
         this.dateOfIssue = dateOfIssue;
     }
 
-    public Enum getColor() {
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
+    }
+
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Enum color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public Enum getBodyType() {
+    public BodyType getBodyType() {
         return bodyType;
     }
 
-    public void setBodyType(Enum bodyType) {
+    public void setBodyType(BodyType bodyType) {
         this.bodyType = bodyType;
     }
 
@@ -94,11 +114,11 @@ public class Car {
         this.engineCapacity = engineCapacity;
     }
 
-    public Enum getFuelType() {
+    public String getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(Enum fuelType) {
+    public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
     }
 
@@ -110,12 +130,12 @@ public class Car {
         this.fuelConsumption = fuelConsumption;
     }
 
-    public Enum getTransmission() {
-        return transmission;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTransmission(Enum transmission) {
-        this.transmission = transmission;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<String> getOptions() {

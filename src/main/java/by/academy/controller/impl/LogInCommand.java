@@ -7,6 +7,7 @@ import by.academy.service.UserService;
 import by.academy.service.exception.ServiceException;
 import by.academy.service.impl.UserServiceImpl;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,8 @@ public class LogInCommand implements Command {
         String errorMessage = "Please, check your login, email and password";
         String logInfo = "Hello";
         String role;
+
+        req.getSession().getServletContext().getAttribute("")
 
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         UserService userService = serviceFactory.getUserService();

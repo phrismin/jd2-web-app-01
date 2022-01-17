@@ -1,13 +1,22 @@
 package by.academy.dao.impl;
 
+import by.academy.config.ConnectionPool;
+import by.academy.config.ConnectionPoolException;
 import by.academy.dao.UserDAO;
 import by.academy.dao.exception.DAOException;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class SQLUserDAO implements UserDAO {
     @Override
     public String authorization(String login, String password) throws DAOException {
+
+        try {
+            Connection connection = ConnectionPool.takeConnection();
+        } catch (ConnectionPoolException e) {
+            e.printStackTrace();
+        }
 
         String role = "admin";
         if (!role.equals("admin")) {

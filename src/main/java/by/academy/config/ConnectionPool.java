@@ -19,8 +19,8 @@ public final class ConnectionPool {
         }
     }
 
-    private BlockingQueue<Connection> connectionQueue;
-    private BlockingQueue<Connection> givenAwayConQueue;
+    private static BlockingQueue<Connection> connectionQueue;
+    private static BlockingQueue<Connection> givenAwayConQueue;
 
     private final String driverName;
     private final String url;
@@ -69,11 +69,11 @@ public final class ConnectionPool {
         }
     }
 
-    public void dispose() {
+    public static void dispose() {
         clearConnectionQueue();
     }
 
-    private void clearConnectionQueue() {
+    private static void clearConnectionQueue() {
         try {
             closeConnectionQueue(givenAwayConQueue);
             closeConnectionQueue(connectionQueue);
@@ -82,8 +82,8 @@ public final class ConnectionPool {
         }
     }
 
-    public Connection takeConnection() throws ConnectionPoolException {
-        Connection connection = null;
+    public static Connection takeConnection() throws ConnectionPoolException {
+        Connection connection;
         try {
             connection = connectionQueue.take();
             givenAwayConQueue.add(connection);
@@ -93,7 +93,8 @@ public final class ConnectionPool {
         return connection;
     }
 
-    public void closeConnection(Connection con, Statement st, ResultSet rs) {
+    /*
+    public static void closeConnection(Connection con, Statement st, ResultSet rs) {
         try {
             con.close();
         } catch (SQLException e) {
@@ -126,8 +127,9 @@ public final class ConnectionPool {
             // logger.log(Level.ERROR, "Statement isn't closed.");
         }
     }
+     */
 
-    private void closeConnectionQueue(BlockingQueue<Connection> queue) throws SQLException {
+    private static void closeConnectionQueue(BlockingQueue<Connection> queue) throws SQLException {
         Connection connection;
         while ((connection = queue.poll()) != null) {
             if (connection.getAutoCommit()) {
@@ -137,7 +139,7 @@ public final class ConnectionPool {
         }
     }
 
-    private class PooledConnection implements Connection {
+    private static class PooledConnection implements Connection {
         private Connection connection;
 
         public PooledConnection(Connection connection) throws SQLException {
