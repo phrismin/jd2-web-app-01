@@ -12,8 +12,10 @@ public class SQLUserDAO implements UserDAO {
     @Override
     public String authorization(String login, String password) throws DAOException {
 
+
         try {
-            Connection connection = ConnectionPool.takeConnection();
+            ConnectionPool connectionPool = ConnectionPool.getInstance();
+            Connection connection = connectionPool.takeConnection();
         } catch (ConnectionPoolException e) {
             e.printStackTrace();
         }

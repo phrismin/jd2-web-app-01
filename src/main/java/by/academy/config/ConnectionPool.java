@@ -19,8 +19,8 @@ public final class ConnectionPool {
         }
     }
 
-    private static BlockingQueue<Connection> connectionQueue;
-    private static BlockingQueue<Connection> givenAwayConQueue;
+    private BlockingQueue<Connection> connectionQueue;
+    private BlockingQueue<Connection> givenAwayConQueue;
 
     private final String driverName;
     private final String url;
@@ -69,7 +69,7 @@ public final class ConnectionPool {
         }
     }
 
-    public static void destroyed() {
+    public void destroyed() {
         try {
             closeConnectionQueue(givenAwayConQueue);
             closeConnectionQueue(connectionQueue);
@@ -93,7 +93,7 @@ public final class ConnectionPool {
     }
      */
 
-    public static Connection takeConnection() throws ConnectionPoolException {
+    public Connection takeConnection() throws ConnectionPoolException {
         Connection connection;
         try {
             connection = connectionQueue.take();
