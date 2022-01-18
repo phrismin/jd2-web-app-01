@@ -3,7 +3,7 @@ package by.academy.controller.filter;
 import javax.servlet.*;
 import java.io.IOException;
 
-public class CharsetFilter implements javax.servlet.Filter {
+public class CharsetFilter implements Filter {
 
     private String encoding;
 
@@ -18,6 +18,7 @@ public class CharsetFilter implements javax.servlet.Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         servletRequest.setCharacterEncoding(encoding);
+        servletResponse.setCharacterEncoding(encoding);
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

@@ -39,7 +39,6 @@
     <listener>
         <listener-class>by.academy.controller.listener.ProjectRequestListener</listener-class>
     </listener>
-
     <listener>
         <listener-class>by.academy.controller.listener.DataSourceInitListener</listener-class>
     </listener>

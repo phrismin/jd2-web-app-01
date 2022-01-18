@@ -5,9 +5,7 @@ import by.academy.controller.Command;
 import by.academy.service.ServiceFactory;
 import by.academy.service.UserService;
 import by.academy.service.exception.ServiceException;
-import by.academy.service.impl.UserServiceImpl;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,21 +13,24 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class LogInCommand implements Command {
+    public static final String LOGIN_PARAMETER = "login";
+    public static final String PSW_PARAMETER = "psw";
+    public static final String USER_NAME_PARAMETER = "userName";
+    public static final String ERROR_MESSAGE_PARAMETER = "Please, check your login, email and password";
+    public static final String ROLE_PARAMETER_ADMIN = "admin";
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("LOG IN");
 
-        String login = req.getParameter("login");
-        String password = req.getParameter("psw");
+        String login = req.getParameter(LOGIN_PARAMETER);
+        String password = req.getParameter(PSW_PARAMETER);
         System.out.println(login + " " + password);
 
         String userName = "Vasyl";
         String errorMessage = "Please, check your login, email and password";
         String logInfo = "Hello";
         String role;
-
-        req.getSession().getServletContext().getAttribute("")
 
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         UserService userService = serviceFactory.getUserService();

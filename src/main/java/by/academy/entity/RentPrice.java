@@ -1,6 +1,11 @@
 package by.academy.entity;
 
-public class RentPrice {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class RentPrice implements Serializable {
+    private static final long serialVersionUID = 8L;
+
     private Long id;
     private String startRent;
     private String endRent;
@@ -46,5 +51,19 @@ public class RentPrice {
 
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RentPrice rentPrice = (RentPrice) o;
+        return Objects.equals(id, rentPrice.id) && Objects.equals(startRent, rentPrice.startRent)
+                && Objects.equals(endRent, rentPrice.endRent) && Objects.equals(value, rentPrice.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, startRent, endRent, value);
     }
 }

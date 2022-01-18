@@ -1,9 +1,11 @@
 package by.academy.entity;
 
+import java.io.Serializable;
 import java.sql.Time;
+import java.util.Objects;
 
-public class Reservation {
-    private static final long SerialVersionUID = 3;
+public class Reservation implements Serializable {
+    private static final long serialVersionUID = 9L;
 
     private Long id;
     private String orderNumber;
@@ -81,5 +83,21 @@ public class Reservation {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservation that = (Reservation) o;
+        return Objects.equals(id, that.id) && Objects.equals(orderNumber, that.orderNumber)
+                && reservationStatus == that.reservationStatus && Objects.equals(startTime, that.startTime)
+                && Objects.equals(endTime, that.endTime) && Objects.equals(reservTime, that.reservTime)
+                && Objects.equals(description, that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, orderNumber, reservationStatus, startTime, endTime, reservTime, description);
     }
 }

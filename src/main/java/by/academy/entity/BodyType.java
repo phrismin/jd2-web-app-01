@@ -1,6 +1,8 @@
 package by.academy.entity;
 
-public enum BodyType {
+import java.io.Serializable;
+
+public enum BodyType implements Serializable {
     SEDAN, HATCHBACK, CROSSOVER, WAGON, VAN, COUPE, SUV, MINIBUS, CONVERTIBLE;
 
     public static BodyType fromValue(int value) {

@@ -1,4 +1,6 @@
-package by.academy.controller;
+package by.academy.controller.impl;
+
+import by.academy.controller.Command;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -1,9 +1,10 @@
 package by.academy.entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class User implements Serializable {
-    private static final long SerialVersionUID = 2;
+    private static final long serialVersionUID = 10L;
 
     private Long id;
     private String name;
@@ -50,5 +51,19 @@ public class User implements Serializable {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name)
+                && Objects.equals(password, user.password) && userRole == user.userRole;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, password, userRole);
     }
 }

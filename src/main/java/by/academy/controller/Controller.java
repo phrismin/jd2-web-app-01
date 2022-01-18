@@ -10,6 +10,7 @@ import java.util.Iterator;
 
 public class Controller extends HttpServlet {
     public static final long serialVersionUID = 1L;
+    private static final String COMMAND = "command";
     private final CommandProvider provider = new CommandProvider();
 
     @Override
@@ -25,7 +26,7 @@ public class Controller extends HttpServlet {
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         System.out.println("Controller");
 
-        String commandName = req.getParameter("command");
+        String commandName = req.getParameter(COMMAND);
         Command command = provider.getCommand(commandName);
         command.execute(req, resp);
     }

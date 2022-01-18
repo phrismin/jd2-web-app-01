@@ -1,9 +1,13 @@
 package by.academy.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
-public class Car {
+public class Car implements Serializable {
+    private static final long serialVersionUID = 5L;
+
     private Long id;
     private String brand;
     private String model;
@@ -152,5 +156,27 @@ public class Car {
 
     public void setVinCode(String vinCode) {
         this.vinCode = vinCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(id, car.id) && Objects.equals(brand, car.brand)
+                && Objects.equals(model, car.model)
+                && carClass == car.carClass && Objects.equals(dateOfIssue, car.dateOfIssue)
+                && Objects.equals(transmission, car.transmission) && Objects.equals(color, car.color)
+                && bodyType == car.bodyType && Objects.equals(engineCapacity, car.engineCapacity)
+                && Objects.equals(fuelType, car.fuelType)
+                && Objects.equals(fuelConsumption, car.fuelConsumption)
+                && Objects.equals(description, car.description) && Objects.equals(options, car.options)
+                && Objects.equals(vinCode, car.vinCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, brand, model, carClass, dateOfIssue, transmission, color, bodyType,
+                engineCapacity, fuelType, fuelConsumption, description, options, vinCode);
     }
 }

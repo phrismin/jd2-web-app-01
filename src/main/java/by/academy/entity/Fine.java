@@ -1,6 +1,11 @@
 package by.academy.entity;
 
-public class Fine {
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Fine implements Serializable {
+    private static final long serialVersionUID = 6L;
+
     private Long id;
     private Double price;
     private String description;
@@ -36,5 +41,19 @@ public class Fine {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Fine fine = (Fine) o;
+        return Objects.equals(id, fine.id) && Objects.equals(price, fine.price)
+                && Objects.equals(description, fine.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, price, description);
     }
 }

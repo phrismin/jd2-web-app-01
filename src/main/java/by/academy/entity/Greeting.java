@@ -3,7 +3,12 @@ package by.academy.entity;
 import java.util.Objects;
 
 public class Greeting {
+    private static final long serialVersionUID = 7L;
+
     private String message;
+
+    public Greeting() {
+    }
 
     public Greeting(String message) {
         this.message = message;

@@ -69,6 +69,16 @@ public final class ConnectionPool {
         }
     }
 
+    public static void destroyed() {
+        try {
+            closeConnectionQueue(givenAwayConQueue);
+            closeConnectionQueue(connectionQueue);
+        } catch (SQLException e) {
+            // logger.log(Level.ERROR, "Error closing the connection", e);
+        }
+    }
+
+    /*
     public static void dispose() {
         clearConnectionQueue();
     }
@@ -81,6 +91,7 @@ public final class ConnectionPool {
             // logger.log(Level.ERROR, "Error closing the connection", e);
         }
     }
+     */
 
     public static Connection takeConnection() throws ConnectionPoolException {
         Connection connection;
@@ -131,6 +142,7 @@ public final class ConnectionPool {
 
     private static void closeConnectionQueue(BlockingQueue<Connection> queue) throws SQLException {
         Connection connection;
+
         while ((connection = queue.poll()) != null) {
             if (connection.getAutoCommit()) {
                 connection.commit();

@@ -1,8 +1,12 @@
 package by.academy.entity;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
-public class userInfo {
+public class userInfo implements Serializable {
+    private static final long serialVersionUID = 11L;
+
     private String email;
     private String passpName;
     private String passpSurname;
@@ -110,5 +114,27 @@ public class userInfo {
 
     public void setDrivLicCategory(String drivLicCategory) {
         this.drivLicCategory = drivLicCategory;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        userInfo userInfo = (userInfo) o;
+        return Objects.equals(email, userInfo.email) && Objects.equals(passpName, userInfo.passpName)
+                && Objects.equals(passpSurname, userInfo.passpSurname)
+                && Objects.equals(passpPatronymic, userInfo.passpPatronymic)
+                && Objects.equals(passpDateBirth, userInfo.passpDateBirth)
+                && Objects.equals(passpDateIssue, userInfo.passpDateIssue)
+                && Objects.equals(passpNumber, userInfo.passpNumber)
+                && Objects.equals(drivLicDateIssue, userInfo.drivLicDateIssue)
+                && Objects.equals(drivLicSerialNumber, userInfo.drivLicSerialNumber)
+                && Objects.equals(drivLicCategory, userInfo.drivLicCategory);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, passpName, passpSurname, passpPatronymic, passpDateBirth,
+                passpDateIssue, passpNumber, drivLicDateIssue, drivLicSerialNumber, drivLicCategory);
     }
 }

@@ -29,4 +29,16 @@ public class UserServiceImpl implements UserService {
     public boolean registration(String login, String password, String email) {
         return false;
     }
+
+    private boolean validationLogin(String login) {
+        return true;
+    }
+
+    private boolean validationPassword(String password) {
+        return true;
+    }
+
+    private boolean validationEmail(String email) {
+        return true;
+    }
 }

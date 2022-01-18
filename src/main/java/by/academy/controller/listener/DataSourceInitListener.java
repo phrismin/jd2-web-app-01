@@ -10,12 +10,12 @@ public class DataSourceInitListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContextListener.super.contextInitialized(sce);
-        ConnectionPool cp = ConnectionPool.getInstance();
+        ConnectionPool.getInstance();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        ConnectionPool.dispose();
+        ConnectionPool.destroyed();
         ServletContextListener.super.contextDestroyed(sce);
     }
 }

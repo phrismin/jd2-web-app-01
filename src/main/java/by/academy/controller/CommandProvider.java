@@ -9,14 +9,22 @@ public final class CommandProvider {
 
     private final Map<String, Command> commands = new HashMap<>();
 
-    public CommandProvider() {
-        commands.put("Log in", new LogInCommand());
-        commands.put("Sign up", new SignUpCommand());
+    public static final String LOG_IN_COMMAND = "Log in";
+    public static final String SIGN_IN_COMMAND = "Sign up";
 
-        commands.put("GO_TO_AUTHORIZATION_PAGE", new GoToAuthorizationPage());
-        commands.put("GO_TO_REGISTRATION_PAGE", new GoToRegistrationPage());
-        commands.put("GO_TO_INDEX_PAGE", new GoToIndexPage());
-        commands.put("GO_TO_MAIN_PAGE", new GoToMainPage());
+    public static final String AUTHORIZATION_PAGE = "GO_TO_AUTHORIZATION_PAGE";
+    public static final String REGISTRATION_PAGE = "GO_TO_REGISTRATION_PAGE";
+    public static final String INDEX_PAGE = "GO_TO_INDEX_PAGE";
+    public static final String MAIN_PAGE = "GO_TO_MAIN_PAGE";
+
+    public CommandProvider() {
+        commands.put(LOG_IN_COMMAND, new LogInCommand());
+        commands.put(SIGN_IN_COMMAND, new SignUpCommand());
+
+        commands.put(AUTHORIZATION_PAGE, new GoToAuthorizationPage());
+        commands.put(REGISTRATION_PAGE, new GoToRegistrationPage());
+        commands.put(INDEX_PAGE, new GoToIndexPage());
+        commands.put(MAIN_PAGE, new GoToMainPage());
     }
 
     public Command getCommand(String commandName) {
