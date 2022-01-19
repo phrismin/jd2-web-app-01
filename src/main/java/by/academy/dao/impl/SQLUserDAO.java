@@ -11,12 +11,12 @@ import java.sql.SQLException;
 public class SQLUserDAO implements UserDAO {
     @Override
     public String authorization(String login, String password) throws DAOException {
-
-
         try {
-            ConnectionPool connectionPool = ConnectionPool.getInstance();
-            Connection connection = connectionPool.takeConnection();
+            Connection connection = ConnectionPool.getInstance().takeConnection();
+            connection.prepareStatement("d");
         } catch (ConnectionPoolException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 

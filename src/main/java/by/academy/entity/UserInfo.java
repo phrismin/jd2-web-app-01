@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-public class userInfo implements Serializable {
+public class UserInfo implements Serializable {
     private static final long serialVersionUID = 11L;
 
     private String email;
@@ -18,10 +18,10 @@ public class userInfo implements Serializable {
     private String drivLicSerialNumber;
     private String drivLicCategory;
 
-    public userInfo() {
+    public UserInfo() {
     }
 
-    public userInfo(String email, String passpName, String passpSurname, String passpPatronymic,
+    public UserInfo(String email, String passpName, String passpSurname, String passpPatronymic,
                     Date passpDateBirth, Date passpDateIssue, String passpNumber, Date drivLicDateIssue,
                     String drivLicSerialNumber, String drivLicCategory) {
         this.email = email;
@@ -120,7 +120,7 @@ public class userInfo implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        userInfo userInfo = (userInfo) o;
+        UserInfo userInfo = (UserInfo) o;
         return Objects.equals(email, userInfo.email) && Objects.equals(passpName, userInfo.passpName)
                 && Objects.equals(passpSurname, userInfo.passpSurname)
                 && Objects.equals(passpPatronymic, userInfo.passpPatronymic)

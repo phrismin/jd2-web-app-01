@@ -1,7 +1,6 @@
 package by.academy.config;
 
 import java.sql.*;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -48,8 +47,6 @@ public final class ConnectionPool {
     }
 
     private void initPoolData() throws ConnectionPoolException {
-        Locale.setDefault(Locale.ENGLISH);
-
         try {
             Class.forName(driverName);
 
@@ -151,7 +148,7 @@ public final class ConnectionPool {
         }
     }
 
-    private static class PooledConnection implements Connection {
+    private class PooledConnection implements Connection {
         private Connection connection;
 
         public PooledConnection(Connection connection) throws SQLException {
