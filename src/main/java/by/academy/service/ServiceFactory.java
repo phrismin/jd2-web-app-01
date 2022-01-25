@@ -1,8 +1,6 @@
 package by.academy.service;
 
-import by.academy.service.impl.FindCarServiceImpl;
-import by.academy.service.impl.FindUserServiceImpl;
-import by.academy.service.impl.UserServiceImpl;
+import by.academy.service.impl.*;
 
 public final class ServiceFactory {
 
@@ -11,6 +9,8 @@ public final class ServiceFactory {
     private final UserService userService = new UserServiceImpl();
     private final FindUserService findUserService = new FindUserServiceImpl();
     private final FindCarService findCarService = new FindCarServiceImpl();
+    private final CarReserveService carReserveService = new CarReserveServiceImpl();
+    private final CarClassService carClassService = new CarClassServiceImpl();
 
     private ServiceFactory() {
     }
@@ -29,5 +29,13 @@ public final class ServiceFactory {
 
     public FindCarService getFindCarService() {
         return findCarService;
+    }
+
+    public CarReserveService getCarReserveService() {
+        return carReserveService;
+    }
+
+    public CarClassService getCarClassService() {
+        return carClassService;
     }
 }

@@ -9,16 +9,16 @@ public class User implements Serializable {
     private Long id;
     private String name;
     private String password;
-    private UserRole userRole;
+    private Role role;
 
     public User() {
     }
 
-    public User(Long id, String name, String password, UserRole userRole) {
+    public User(Long id, String name, String password, Role role) {
         this.id = id;
         this.name = name;
         this.password = password;
-        this.userRole = userRole;
+        this.role = role;
     }
 
     public Long getId() {
@@ -27,6 +27,14 @@ public class User implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getName() {
@@ -45,12 +53,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public UserRole getUserRole() {
-        return userRole;
+    public Role getUserRole() {
+        return role;
     }
 
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
+    public void setUserRole(Role role) {
+        this.role = role;
     }
 
     @Override
@@ -59,11 +67,11 @@ public class User implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(id, user.id) && Objects.equals(name, user.name)
-                && Objects.equals(password, user.password) && userRole == user.userRole;
+                && Objects.equals(password, user.password) && role == user.role;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, password, userRole);
+        return Objects.hash(id, name, password, role);
     }
 }

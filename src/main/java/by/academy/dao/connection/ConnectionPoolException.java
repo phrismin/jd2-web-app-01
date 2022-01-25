@@ -1,4 +1,4 @@
-package by.academy.config;
+package by.academy.dao.connection;
 
 public class ConnectionPoolException extends Exception {
     private static final long serialVersionUID = 1L;

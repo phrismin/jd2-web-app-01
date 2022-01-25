@@ -10,6 +10,7 @@ import java.util.Iterator;
 
 public class Controller extends HttpServlet {
     public static final long serialVersionUID = 1L;
+
     private static final String COMMAND = "command";
     private final CommandProvider provider = new CommandProvider();
 

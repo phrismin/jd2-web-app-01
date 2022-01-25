@@ -8,4 +8,6 @@ public interface UserService {
 
     boolean registration(String login, String password, String email) throws ServiceException;
 
+    boolean isExistUser(String login, String password) throws ServiceException;
+
 }

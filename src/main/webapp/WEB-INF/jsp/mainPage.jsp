@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"
-    errorPage="error.jsp" %>
+    errorPage="errorPage.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -8,14 +8,14 @@
 </head>
 <body>
     <main>
-        <c:set var="logInfo" scope="request" value="${param.loginationInfo}"/>
-        <c:set var="regInfo" scope="request" value="${param.registrationInfo}"/>
+<%--        <c:set var="logInfo" scope="request" value="${param.loginationInfo}"/>--%>
+<%--        <c:set var="regInfo" scope="request" value="${param.registrationInfo}"/>--%>
         <c:set var="userName" scope="session" value="${sessionScope.userName}"/>
-        <c:set var="userRole" scope="session" value="${sessionScope.userRole}"/>
+        <c:set var="role" scope="session" value="${sessionScope.role}"/>
 
-        <c:if test="${userRole == 'user' && userName != null}" var="testIf">
+        <c:if test="${role == 'user' && userName != null}" var="testIf">
             <h3>
-                <c:out value="${logInfo} ${userName}(${userRole})"/>
+                <c:out value="${logInfo} ${userName}(${role})"/>
             </h3>
         </c:if>
 

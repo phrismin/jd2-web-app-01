@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface FindCarService {
 
-    List<Car> findAllCars(CarClass carClass);
+    List<Car> findCarsByCarClass(CarClass carClass);
 
     Car findByCar(String carInfo);
 

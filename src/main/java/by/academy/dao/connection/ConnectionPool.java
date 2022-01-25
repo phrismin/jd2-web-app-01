@@ -1,4 +1,4 @@
-package by.academy.config;
+package by.academy.dao.connection;
 
 import java.sql.*;
 import java.util.Map;

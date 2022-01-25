@@ -4,6 +4,6 @@
     <title>Error Page</title>
 </head>
 <body>
-    <h1>Ooooops...</h1>
+    <h1 style="color: #c53429">Ooooops...:)</h1>
 </body>
 </html>

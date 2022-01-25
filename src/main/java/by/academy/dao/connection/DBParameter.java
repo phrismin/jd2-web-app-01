@@ -1,4 +1,4 @@
-package by.academy.config;
+package by.academy.dao.connection;
 
 public final class DBParameter {
     public static final String DB_DRIVER = "db.driver";

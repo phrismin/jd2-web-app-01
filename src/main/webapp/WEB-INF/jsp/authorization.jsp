@@ -3,6 +3,7 @@
 <head>
     <title>Log in</title>
 </head>
+<body>
     <a href="controller?command=GO_TO_INDEX_PAGE">Back</a>
 </body>
 </html>

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FindCarServiceImpl implements FindCarService {
     @Override
-    public List<Car> findAllCars(CarClass carClass) {
+    public List<Car> findCarsByCarClass(CarClass carClass) {
         return null;
     }
 

@@ -13,45 +13,52 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class LogInCommand implements Command {
-    public static final String LOGIN_PARAMETER = "login";
-    public static final String PSW_PARAMETER = "psw";
-    public static final String USER_NAME_PARAMETER = "userName";
-    public static final String ERROR_MESSAGE_PARAMETER = "Please, check your login, email and password";
-    public static final String ROLE_PARAMETER_ADMIN = "admin";
+    private static final String LOGIN = "login";
+    private static final String PASSWORD = "psw";
+    private static final String USER_NAME = "userName";
+    private static final String ERROR_MESSAGE = "Please, check your login, email and password";
+    private static final String ADMIN = "admin";
+    private static final String MANAGER = "manager";
+    private static final String CUSTOMER = "customer";
+    private static final String ROLE = "role";
+    private static final String CAR_CLASSES = "carClass=budget&carClass=middle&carClass=business" +
+            "&carClass=premium&carClass=suv&carClass=convertible&carClass=exclusive";
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("LOG IN");
 
-        String login = req.getParameter(LOGIN_PARAMETER);
-        String password = req.getParameter(PSW_PARAMETER);
+        String login = req.getParameter(LOGIN);
+        String password = req.getParameter(PASSWORD);
         System.out.println(login + " " + password);
-
-        String userName = "Vasyl";
-        String errorMessage = "Please, check your login, email and password";
-        String logInfo = "Hello";
-        String role;
 
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
         UserService userService = serviceFactory.getUserService();
 
         try {
-            role = userService.authorization(login, password);
+            String role = userService.authorization(login, password);
 
             HttpSession session = req.getSession();
-            if ("".equals(role)) {
-                session.setAttribute("userName", userName);
-                session.setAttribute("role", role);
-                resp.sendRedirect("controller?command=GO_TO_MAIN_PAGE&" +
-                        "loginationInfo=" + logInfo);
+            session.setAttribute(USER_NAME, login);
+
+            if (ADMIN.equals(role)) {
+                session.setAttribute(ROLE, ADMIN);
+
+            } else if (MANAGER.equals(role)) {
+                session.setAttribute(ROLE, MANAGER);
+
+            } else if (CUSTOMER.equals(role)) {
+                session.setAttribute(ROLE, CUSTOMER);
+
             } else {
                 resp.sendRedirect("controller?command=GO_TO_INDEX_PAGE&" +
-                        "errorMessage=" + errorMessage);
+                        "errorMessage=" + ERROR_MESSAGE);
             }
 
+            resp.sendRedirect("controller?command=GO_TO_MAIN_PAGE&" + CAR_CLASSES);
+
         } catch (ServiceException e) {
-            resp.sendRedirect("controller?command=GO_TO_INDEX_PAGE&" +
-                    "errorMessage=" + errorMessage);
+            resp.sendRedirect("controller?command=GO_TO_ERROR_PAGE");
         }
     }
 }
