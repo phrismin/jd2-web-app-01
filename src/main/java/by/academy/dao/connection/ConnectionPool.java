@@ -101,7 +101,6 @@ public final class ConnectionPool {
         return connection;
     }
 
-    /*
     public static void closeConnection(Connection con, Statement st, ResultSet rs) {
         try {
             con.close();
@@ -135,7 +134,6 @@ public final class ConnectionPool {
             // logger.log(Level.ERROR, "Statement isn't closed.");
         }
     }
-     */
 
     private static void closeConnectionQueue(BlockingQueue<Connection> queue) throws SQLException {
         Connection connection;

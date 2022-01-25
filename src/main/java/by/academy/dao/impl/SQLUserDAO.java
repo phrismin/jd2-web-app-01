@@ -38,6 +38,8 @@ public class SQLUserDAO implements UserDAO {
             user.setPassword(resultSet.getString(3));
             user.setUserRole(Role.valueOf(resultSet.getString(4).toLowerCase(Locale.ROOT)));
 
+            ConnectionPool.closeConnection(connection, statement, resultSet);
+
         } catch (ConnectionPoolException e) {
             throw new DAOException("ConnectionPoolException on SQLUserDAO", e);
         } catch (SQLException e) {
