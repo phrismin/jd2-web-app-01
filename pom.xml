@@ -9,7 +9,7 @@
   <version>1.0.0</version>
   <packaging>war</packaging>
 
-  <name>jd2-web-app-01 Maven Webapp</name>
+  <login>jd2-web-app-01 Maven Webapp</login>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 

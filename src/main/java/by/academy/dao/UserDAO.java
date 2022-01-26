@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface UserDAO {
 
-    Optional<User> authorization(String login, String password) throws DAOException;
+    User authorization(String login, String password) throws DAOException;
 
     boolean registration(User user, UserInfo userInfo) throws DAOException;
 

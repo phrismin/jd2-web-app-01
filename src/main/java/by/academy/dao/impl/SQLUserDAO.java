@@ -9,44 +9,53 @@ import by.academy.entity.User;
 import by.academy.entity.UserInfo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Locale;
-import java.util.Optional;
 
 public class SQLUserDAO implements UserDAO {
     //language=MySQL
-    private static final String GET_USER_BY_NAME_AND_PASSWORD =
-            "SELECT * FROM users WHERE login = ? AND password = ?";
+    private static final String GET_USER_BY_LOGIN_AND_PASSWORD =
+            "SELECT * FROM rent_cars_db.users WHERE login = ? AND password = ?";
 
+    //language=SQL
     private static final String GET_USER_INFO_BY_ID =
             "SELECT * FROM user_info WHERE id = ?";
 
+    private final ConnectionPool connectionPool = ConnectionPool.getInstance();
+
     @Override
-    public Optional<User> authorization(String login, String password) throws DAOException {
+    public User authorization(String login, String password) throws DAOException {
+        Connection con = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
         User user = new User();
 
-        try (Connection connection = ConnectionPool.getInstance().takeConnection();
-             var statement = connection.prepareStatement(GET_USER_BY_NAME_AND_PASSWORD)) {
+        try {
+            con = connectionPool.takeConnection();
+            st = con.prepareStatement(GET_USER_BY_LOGIN_AND_PASSWORD);
 
-            statement.setString(1, login);
-            statement.setString(2, password);
-            ResultSet resultSet = statement.executeQuery();
+            st.setString(1, login);
+            st.setString(2, password);
+            rs = st.executeQuery();
 
-            user.setId(resultSet.getLong(1));
-            user.setName(resultSet.getString(2));
-            user.setPassword(resultSet.getString(3));
-            user.setUserRole(Role.valueOf(resultSet.getString(4).toLowerCase(Locale.ROOT)));
-
-            ConnectionPool.closeConnection(connection, statement, resultSet);
+            int anInt = rs.getInt(1);
+            System.out.println("!!!!!!!");
+            user.setId(rs.getLong("id"));
+            user.setLogin(rs.getString("login"));
+            user.setPassword(rs.getString("password"));
+            user.setUserRole(Role.valueOf(rs.getString("role").toLowerCase(Locale.ROOT)));
 
         } catch (ConnectionPoolException e) {
             throw new DAOException("ConnectionPoolException on SQLUserDAO", e);
         } catch (SQLException e) {
             throw new DAOException("User isn't exist", e);
+        } finally {
+            connectionPool.closeConnection(con, st, rs);
         }
 
-        return Optional.of(user);
+        return user;
     }
 
     @Override

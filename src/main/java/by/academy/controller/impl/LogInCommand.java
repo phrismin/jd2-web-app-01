@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class LogInCommand implements Command {
     private static final String LOGIN = "login";
-    private static final String PASSWORD = "psw";
+    private static final String PASSWORD = "password";
     private static final String USER_NAME = "userName";
     private static final String ERROR_MESSAGE = "Please, check your login, email and password";
     private static final String ADMIN = "admin";

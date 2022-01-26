@@ -14,7 +14,7 @@ public final class ConnectionPool {
         try {
             instance = new ConnectionPool();
         } catch (ConnectionPoolException e) {
-            throw new RuntimeException("ConnectionPoolException", e);
+            throw new RuntimeException("ConnectionPool's instance didn't create", e);
         }
     }
 
@@ -66,21 +66,20 @@ public final class ConnectionPool {
         }
     }
 
-    public void destroyed() {
-        try {
-            closeConnectionQueue(givenAwayConQueue);
-            closeConnectionQueue(connectionQueue);
-        } catch (SQLException e) {
-            // logger.log(Level.ERROR, "Error closing the connection", e);
-        }
-    }
+//    public void destroyed() {
+//        try {
+//            closeConnectionQueue(givenAwayConQueue);
+//            closeConnectionQueue(connectionQueue);
+//        } catch (SQLException e) {
+//             logger.log(Level.ERROR, "Error closing the connection", e);
+//        }
+//    }
 
-    /*
-    public static void dispose() {
+    public void dispose() {
         clearConnectionQueue();
     }
 
-    private static void clearConnectionQueue() {
+    private void clearConnectionQueue() {
         try {
             closeConnectionQueue(givenAwayConQueue);
             closeConnectionQueue(connectionQueue);
@@ -88,7 +87,6 @@ public final class ConnectionPool {
             // logger.log(Level.ERROR, "Error closing the connection", e);
         }
     }
-     */
 
     public Connection takeConnection() throws ConnectionPoolException {
         Connection connection;
@@ -101,7 +99,7 @@ public final class ConnectionPool {
         return connection;
     }
 
-    public static void closeConnection(Connection con, Statement st, ResultSet rs) {
+    public void closeConnection(Connection con, Statement st, ResultSet rs) {
         try {
             con.close();
         } catch (SQLException e) {

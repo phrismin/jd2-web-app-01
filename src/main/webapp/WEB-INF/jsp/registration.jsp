@@ -24,10 +24,10 @@
             </h3>
         </c:if>
 
-        <input type="hidden" name="command" value="Sign up">
-        <input type="text" name="login" placeholder="Username">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password"  name="psw" placeholder="Password">
+        <input type="hidden" login="command" value="Sign up">
+        <input type="text" login="login" placeholder="Username">
+        <input type="email" login="email" placeholder="Email">
+        <input type="password"  login="psw" placeholder="Password">
         <input type="submit" value="Sign Up"/>
         <hr>
         <h3>

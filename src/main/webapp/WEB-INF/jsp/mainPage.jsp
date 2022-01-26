@@ -26,7 +26,7 @@
         </c:if>
 
         <c:forEach var="car" items="${requestScope.cars}">
-            Cars: <p><c:out value="${car.name} ${car.type}"/></p>
+            Cars: <p><c:out value="${car.login} ${car.type}"/></p>
         </c:forEach>
         <h5>Code from mainPage</h5>
     </main>

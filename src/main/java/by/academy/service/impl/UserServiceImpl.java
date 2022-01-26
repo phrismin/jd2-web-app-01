@@ -3,13 +3,11 @@ package by.academy.service.impl;
 import by.academy.dao.DAOFactory;
 import by.academy.dao.UserDAO;
 import by.academy.dao.exception.DAOException;
-import by.academy.entity.Role;
 import by.academy.entity.User;
 import by.academy.service.exception.ServiceException;
 import by.academy.service.UserService;
 
 import java.util.Locale;
-import java.util.Optional;
 
 public class UserServiceImpl implements UserService {
 
@@ -26,17 +24,14 @@ public class UserServiceImpl implements UserService {
         DAOFactory daoFactory = DAOFactory.getInstance();
         UserDAO userDAO = daoFactory.getUserDAO();
 
-        Optional<User> userOptional;
+        User user;
         try {
-            userOptional = userDAO.authorization(login, password);
+            user = userDAO.authorization(login, password);
         } catch (DAOException e) {
-            throw new ServiceException(e);
+            throw new ServiceException("Authorization exception");
         }
 
-        userOptional.orElseThrow(() -> new ServiceException("User isn't exist"));
-        Role userRole = userOptional.get().getUserRole();
-
-        return userRole.toString().toLowerCase(Locale.ROOT);
+        return user.getRole().toString().toLowerCase(Locale.ROOT);
     }
 
     @Override
