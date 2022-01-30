@@ -1,7 +1,7 @@
 package by.academy.service;
 
-import by.academy.entity.Reservation;
-import by.academy.entity.ReservationStatus;
+import by.academy.dao.entity.Reservation;
+import by.academy.dao.entity.ReservationStatus;
 
 import java.util.List;
 

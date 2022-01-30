@@ -3,7 +3,7 @@ package by.academy.service.impl;
 import by.academy.dao.DAOFactory;
 import by.academy.dao.UserDAO;
 import by.academy.dao.exception.DAOException;
-import by.academy.entity.User;
+import by.academy.dao.entity.User;
 import by.academy.service.exception.ServiceException;
 import by.academy.service.UserService;
 

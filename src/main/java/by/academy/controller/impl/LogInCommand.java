@@ -2,6 +2,8 @@ package by.academy.controller.impl;
 
 
 import by.academy.controller.Command;
+import by.academy.dao.entity.CarClass;
+import by.academy.service.CarClassService;
 import by.academy.service.ServiceFactory;
 import by.academy.service.UserService;
 import by.academy.service.exception.ServiceException;
@@ -11,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 public class LogInCommand implements Command {
     private static final String LOGIN = "login";
@@ -43,19 +48,20 @@ public class LogInCommand implements Command {
 
             if (ADMIN.equals(role)) {
                 session.setAttribute(ROLE, ADMIN);
-
             } else if (MANAGER.equals(role)) {
                 session.setAttribute(ROLE, MANAGER);
-
             } else if (CUSTOMER.equals(role)) {
                 session.setAttribute(ROLE, CUSTOMER);
-
             } else {
                 resp.sendRedirect("controller?command=GO_TO_INDEX_PAGE&" +
                         "errorMessage=" + ERROR_MESSAGE);
             }
 
-            resp.sendRedirect("controller?command=GO_TO_MAIN_PAGE&" + CAR_CLASSES);
+            CarClassService carClassService = serviceFactory.getCarClassService();
+            Map<String, String> mapCarClasses = carClassService.findAllCarClass();
+            req.setAttribute("mapCar", mapCarClasses);
+
+            req.getRequestDispatcher("controller?command=GO_TO_MAIN_PAGE").forward(req, resp);
 
         } catch (ServiceException e) {
             resp.sendRedirect("controller?command=GO_TO_ERROR_PAGE");

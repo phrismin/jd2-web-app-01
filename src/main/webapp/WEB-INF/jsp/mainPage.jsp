@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"
-    errorPage="errorPage.jsp" %>
+         errorPage="errorPage.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -7,28 +7,19 @@
     <link rel="stylesheet" href="css/mainPage.css">
 </head>
 <body>
-    <main>
-<%--        <c:set var="logInfo" scope="request" value="${param.loginationInfo}"/>--%>
-<%--        <c:set var="regInfo" scope="request" value="${param.registrationInfo}"/>--%>
-        <c:set var="userName" scope="session" value="${sessionScope.userName}"/>
-        <c:set var="role" scope="session" value="${sessionScope.role}"/>
+<main>
+    <h3>
+        Login: <c:out value="${sessionScope.userName}"/>
+        <br>
+        Role: <c:out value="${sessionScope.role}"/>
+    </h3>
+    <br>
 
-        <c:if test="${role == 'user' && userName != null}" var="testIf">
-            <h3>
-                <c:out value="${logInfo} ${userName}(${role})"/>
-            </h3>
-        </c:if>
+    <c:forEach var="car" items="${requestScope.mapCar.entrySet()}">
+        <a style="color: antiquewhite" href="controller?command=GO_TO_${car.getValue()}_CAR_PAGE">${car.getKey()}</a>
+        <br>
+    </c:forEach>
 
-        <c:if test="${regInfo != null}" var="testIf">
-            <h3>
-                <c:out value="${regInfo}"/>
-            </h3>
-        </c:if>
-
-        <c:forEach var="car" items="${requestScope.cars}">
-            Cars: <p><c:out value="${car.login} ${car.type}"/></p>
-        </c:forEach>
-        <h5>Code from mainPage</h5>
-    </main>
+</main>
 </body>
 </html>

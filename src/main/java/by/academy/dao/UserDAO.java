@@ -1,10 +1,8 @@
 package by.academy.dao;
 
 import by.academy.dao.exception.DAOException;
-import by.academy.entity.User;
-import by.academy.entity.UserInfo;
-
-import java.util.Optional;
+import by.academy.dao.entity.User;
+import by.academy.dao.entity.UserInfo;
 
 public interface UserDAO {
 

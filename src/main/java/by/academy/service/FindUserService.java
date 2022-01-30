@@ -1,8 +1,8 @@
 package by.academy.service;
 
-import by.academy.entity.Role;
-import by.academy.entity.User;
-import by.academy.entity.UserInfo;
+import by.academy.dao.entity.Role;
+import by.academy.dao.entity.User;
+import by.academy.dao.entity.UserInfo;
 
 import java.util.List;
 import java.util.Optional;

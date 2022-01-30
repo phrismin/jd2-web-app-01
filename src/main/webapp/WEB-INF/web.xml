@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>PageMain</servlet-name>
-        <jsp-file>/WEB-INF/jsp/main.jsp</jsp-file>
+        <jsp-file>/WEB-INF/jsp/mainPage.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>Controller</servlet-name>
@@ -43,8 +43,8 @@
         <listener-class>by.academy.controller.listener.DataSourceInitListener</listener-class>
     </listener>
 
-    <error-page>
-        <exception-type>java.lang.RuntimeException</exception-type>
-        <location>/WEB-INF/jsp/errorPage.jsp</location>
-    </error-page>
+<!--    <error-page>-->
+<!--        <exception-type>java.lang.RuntimeException</exception-type>-->
+<!--        <location>/WEB-INF/jsp/errorPage.jsp</location>-->
+<!--    </error-page>-->
 </web-app>

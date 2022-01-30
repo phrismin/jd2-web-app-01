@@ -4,9 +4,9 @@ import by.academy.dao.connection.ConnectionPool;
 import by.academy.dao.connection.ConnectionPoolException;
 import by.academy.dao.UserDAO;
 import by.academy.dao.exception.DAOException;
-import by.academy.entity.Role;
-import by.academy.entity.User;
-import by.academy.entity.UserInfo;
+import by.academy.dao.entity.Role;
+import by.academy.dao.entity.User;
+import by.academy.dao.entity.UserInfo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,15 +15,14 @@ import java.sql.SQLException;
 import java.util.Locale;
 
 public class SQLUserDAO implements UserDAO {
-    //language=MySQL
+    private final ConnectionPool connectionPool = ConnectionPool.getInstance();
+
     private static final String GET_USER_BY_LOGIN_AND_PASSWORD =
             "SELECT * FROM rent_cars_db.users WHERE login = ? AND password = ?";
 
-    //language=SQL
     private static final String GET_USER_INFO_BY_ID =
             "SELECT * FROM user_info WHERE id = ?";
 
-    private final ConnectionPool connectionPool = ConnectionPool.getInstance();
 
     @Override
     public User authorization(String login, String password) throws DAOException {
@@ -40,15 +39,15 @@ public class SQLUserDAO implements UserDAO {
             st.setString(2, password);
             rs = st.executeQuery();
 
-            int anInt = rs.getInt(1);
-            System.out.println("!!!!!!!");
-            user.setId(rs.getLong("id"));
-            user.setLogin(rs.getString("login"));
-            user.setPassword(rs.getString("password"));
-            user.setUserRole(Role.valueOf(rs.getString("role").toLowerCase(Locale.ROOT)));
+            while (rs.next()) {
+                user.setId(rs.getLong("id"));
+                user.setLogin(rs.getString("login"));
+                user.setPassword(rs.getString("password"));
+                user.setUserRole(Role.valueOf(rs.getString("role").toUpperCase(Locale.ROOT)));
+            }
 
         } catch (ConnectionPoolException e) {
-            throw new DAOException("ConnectionPoolException on SQLUserDAO", e);
+            throw new DAOException("Database server connection problem", e);
         } catch (SQLException e) {
             throw new DAOException("User isn't exist", e);
         } finally {

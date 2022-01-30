@@ -1,7 +1,7 @@
 package by.academy.controller.impl;
 
 import by.academy.controller.Command;
-import by.academy.entity.Greeting;
+import by.academy.dao.entity.Greeting;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -1,7 +1,7 @@
 package by.academy.dao;
 
 import by.academy.dao.exception.DAOException;
-import by.academy.entity.Fine;
+import by.academy.dao.entity.Fine;
 
 public interface FineDAO {
 

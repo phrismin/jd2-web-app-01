@@ -1,7 +1,6 @@
 package by.academy.controller.impl;
 
 import by.academy.controller.Command;
-import by.academy.entity.Car;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -1,6 +1,6 @@
 package by.academy.service;
 
-import by.academy.entity.Car;
+import by.academy.dao.entity.Car;
 
 public interface CarReserveService {
 

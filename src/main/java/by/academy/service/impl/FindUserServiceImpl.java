@@ -1,8 +1,8 @@
 package by.academy.service.impl;
 
-import by.academy.entity.Role;
-import by.academy.entity.User;
-import by.academy.entity.UserInfo;
+import by.academy.dao.entity.Role;
+import by.academy.dao.entity.User;
+import by.academy.dao.entity.UserInfo;
 import by.academy.service.FindUserService;
 
 import java.util.List;

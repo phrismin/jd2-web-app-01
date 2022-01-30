@@ -1,6 +1,6 @@
 package by.academy.service.impl;
 
-import by.academy.entity.Car;
+import by.academy.dao.entity.Car;
 import by.academy.service.CarReserveService;
 
 public class CarReserveServiceImpl implements CarReserveService {

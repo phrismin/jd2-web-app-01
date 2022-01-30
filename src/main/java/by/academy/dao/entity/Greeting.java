@@ -1,4 +1,4 @@
-package by.academy.entity;
+package by.academy.dao.entity;
 
 import java.util.Objects;
 
