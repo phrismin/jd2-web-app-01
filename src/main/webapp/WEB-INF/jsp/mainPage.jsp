@@ -15,8 +15,8 @@
     </h3>
     <br>
 
-    <c:forEach var="car" items="${requestScope.mapCar.entrySet()}">
-        <a style="color: antiquewhite" href="controller?command=GO_TO_${car.getValue()}_CAR_PAGE">${car.getKey()}</a>
+    <c:forEach var="carClass" items="${requestScope.carClasses}">
+        <a style="color: antiquewhite" href="controller?command=GO_TO_${carClass.toUpperCase()}_CAR_PAGE">${carClass}</a>
         <br>
     </c:forEach>
 

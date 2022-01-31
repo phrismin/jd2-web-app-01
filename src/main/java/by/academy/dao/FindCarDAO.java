@@ -2,8 +2,6 @@ package by.academy.dao;
 
 import by.academy.dao.exception.DAOException;
 import by.academy.dao.entity.Car;
-import by.academy.dao.entity.CarClass;
-import by.academy.service.exception.ServiceException;
 
 import java.util.List;
 

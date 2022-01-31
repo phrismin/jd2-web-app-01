@@ -9,24 +9,16 @@ public class Reservation implements Serializable {
 
     private Long id;
     private String orderNumber;
-    private ReservationStatus reservationStatus;
-    private Time startTime;
-    private Time endTime;
-    private Time reservTime;
+    private Time startReservTime;
+    private Time endReservTime;
+    private Integer startMileage;
+    private Integer endMileage;
     private String description;
+    private User user;
+    private Car car;
+    private ReservationStatus reservationStatus;
 
     public Reservation() {
-    }
-
-    public Reservation(Long id, String orderNumber, ReservationStatus reservationStatus,
-                       Time startTime, Time endTime, Time reservTime, String description) {
-        this.id = id;
-        this.orderNumber = orderNumber;
-        this.reservationStatus = reservationStatus;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.reservTime = reservTime;
-        this.description = description;
     }
 
     public Long getId() {
@@ -45,36 +37,36 @@ public class Reservation implements Serializable {
         this.orderNumber = orderNumber;
     }
 
-    public ReservationStatus getReservationStatus() {
-        return reservationStatus;
+    public Time getStartReservTime() {
+        return startReservTime;
     }
 
-    public void setReservationStatus(ReservationStatus reservationStatus) {
-        this.reservationStatus = reservationStatus;
+    public void setStartReservTime(Time startReservTime) {
+        this.startReservTime = startReservTime;
     }
 
-    public Time getStartTime() {
-        return startTime;
+    public Time getEndReservTime() {
+        return endReservTime;
     }
 
-    public void setStartTime(Time startTime) {
-        this.startTime = startTime;
+    public void setEndReservTime(Time endReservTime) {
+        this.endReservTime = endReservTime;
     }
 
-    public Time getEndTime() {
-        return endTime;
+    public Integer getStartMileage() {
+        return startMileage;
     }
 
-    public void setEndTime(Time endTime) {
-        this.endTime = endTime;
+    public void setStartMileage(Integer startMileage) {
+        this.startMileage = startMileage;
     }
 
-    public Time getReservTime() {
-        return reservTime;
+    public Integer getEndMileage() {
+        return endMileage;
     }
 
-    public void setReservTime(Time reservTime) {
-        this.reservTime = reservTime;
+    public void setEndMileage(Integer endMileage) {
+        this.endMileage = endMileage;
     }
 
     public String getDescription() {
@@ -85,19 +77,47 @@ public class Reservation implements Serializable {
         this.description = description;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public ReservationStatus getReservationStatus() {
+        return reservationStatus;
+    }
+
+    public void setReservationStatus(ReservationStatus reservationStatus) {
+        this.reservationStatus = reservationStatus;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reservation that = (Reservation) o;
         return Objects.equals(id, that.id) && Objects.equals(orderNumber, that.orderNumber)
-                && reservationStatus == that.reservationStatus && Objects.equals(startTime, that.startTime)
-                && Objects.equals(endTime, that.endTime) && Objects.equals(reservTime, that.reservTime)
-                && Objects.equals(description, that.description);
+                && Objects.equals(startReservTime, that.startReservTime)
+                && Objects.equals(endReservTime, that.endReservTime)
+                && Objects.equals(startMileage, that.startMileage)
+                && Objects.equals(endMileage, that.endMileage)
+                && Objects.equals(description, that.description) && Objects.equals(user, that.user)
+                && Objects.equals(car, that.car) && reservationStatus == that.reservationStatus;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, orderNumber, reservationStatus, startTime, endTime, reservTime, description);
+        return Objects.hash(id, orderNumber, startReservTime, endReservTime, startMileage,
+                endMileage, description, user, car, reservationStatus);
     }
 }

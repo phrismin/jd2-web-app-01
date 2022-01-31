@@ -1,49 +1,49 @@
 package by.academy.dao.entity;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 public class Car implements Serializable {
     private static final long serialVersionUID = 5L;
 
     private Long id;
+    private String vinCode;
     private String brand;
     private String model;
-    private CarClass carClass;
-    private Date dateOfIssue;
-    private String transmission;
+    private String bodyType;
+    private Integer yearOfIssue;
     private String color;
-    private BodyType bodyType;
-    private Double engineCapacity;
+    private String engineCapacity;
     private String fuelType;
+    private String transmission;
     private String fuelConsumption;
-    private String description;
-    private List<String> options;
-    private String vinCode;
+    private Integer numberDoors;
+    private Integer numberSeats;
+    private Integer mileage;
+    private CarClass carClass;
 
     public Car() {
     }
 
-    public Car(Long id, String brand, String model, CarClass carClass, Date dateOfIssue,
-               String transmission, String color, BodyType bodyType, Double engineCapacity, String fuelType,
-               String fuelConsumption, String description, List<String> options, String vinCode) {
+    public Car(Long id, String vinCode, String brand, String model, String bodyType,
+               Integer yearOfIssue, String color, String engineCapacity, String fuelType,
+               String transmission, String fuelConsumption, Integer numberDoors,
+               Integer numberSeats, Integer mileage, CarClass carClass) {
         this.id = id;
+        this.vinCode = vinCode;
         this.brand = brand;
         this.model = model;
-        this.carClass = carClass;
-        this.dateOfIssue = dateOfIssue;
-        this.transmission = transmission;
-        this.color = color;
         this.bodyType = bodyType;
+        this.yearOfIssue = yearOfIssue;
+        this.color = color;
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
+        this.transmission = transmission;
         this.fuelConsumption = fuelConsumption;
-        this.description = description;
-        this.options = options;
-        this.vinCode = vinCode;
-
+        this.numberDoors = numberDoors;
+        this.numberSeats = numberSeats;
+        this.mileage = mileage;
+        this.carClass = carClass;
     }
 
     public Long getId() {
@@ -52,6 +52,14 @@ public class Car implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getVinCode() {
+        return vinCode;
+    }
+
+    public void setVinCode(String vinCode) {
+        this.vinCode = vinCode;
     }
 
     public String getBrand() {
@@ -70,28 +78,20 @@ public class Car implements Serializable {
         this.model = model;
     }
 
-    public CarClass getCarClass() {
-        return carClass;
+    public String getBodyType() {
+        return bodyType;
     }
 
-    public void setCarClass(CarClass carClass) {
-        this.carClass = carClass;
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
     }
 
-    public Date getDateOfIssue() {
-        return dateOfIssue;
+    public Integer getYearOfIssue() {
+        return yearOfIssue;
     }
 
-    public void setDateOfIssue(Date dateOfIssue) {
-        this.dateOfIssue = dateOfIssue;
-    }
-
-    public String getTransmission() {
-        return transmission;
-    }
-
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
+    public void setYearOfIssue(Integer yearOfIssue) {
+        this.yearOfIssue = yearOfIssue;
     }
 
     public String getColor() {
@@ -102,19 +102,11 @@ public class Car implements Serializable {
         this.color = color;
     }
 
-    public BodyType getBodyType() {
-        return bodyType;
-    }
-
-    public void setBodyType(BodyType bodyType) {
-        this.bodyType = bodyType;
-    }
-
-    public Double getEngineCapacity() {
+    public String getEngineCapacity() {
         return engineCapacity;
     }
 
-    public void setEngineCapacity(Double engineCapacity) {
+    public void setEngineCapacity(String engineCapacity) {
         this.engineCapacity = engineCapacity;
     }
 
@@ -126,6 +118,14 @@ public class Car implements Serializable {
         this.fuelType = fuelType;
     }
 
+    public String getTransmission() {
+        return transmission;
+    }
+
+    public void setTransmission(String transmission) {
+        this.transmission = transmission;
+    }
+
     public String getFuelConsumption() {
         return fuelConsumption;
     }
@@ -134,28 +134,36 @@ public class Car implements Serializable {
         this.fuelConsumption = fuelConsumption;
     }
 
-    public String getDescription() {
-        return description;
+    public Integer getNumberDoors() {
+        return numberDoors;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setNumberDoors(Integer numberDoors) {
+        this.numberDoors = numberDoors;
     }
 
-    public List<String> getOptions() {
-        return options;
+    public Integer getNumberSeats() {
+        return numberSeats;
     }
 
-    public void setOptions(List<String> options) {
-        this.options = options;
+    public void setNumberSeats(Integer numberSeats) {
+        this.numberSeats = numberSeats;
     }
 
-    public String getVinCode() {
-        return vinCode;
+    public Integer getMileage() {
+        return mileage;
     }
 
-    public void setVinCode(String vinCode) {
-        this.vinCode = vinCode;
+    public void setMileage(Integer mileage) {
+        this.mileage = mileage;
+    }
+
+    public CarClass getCarClass() {
+        return carClass;
+    }
+
+    public void setCarClass(CarClass carClass) {
+        this.carClass = carClass;
     }
 
     @Override
@@ -163,20 +171,19 @@ public class Car implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return Objects.equals(id, car.id) && Objects.equals(brand, car.brand)
-                && Objects.equals(model, car.model)
-                && carClass == car.carClass && Objects.equals(dateOfIssue, car.dateOfIssue)
-                && Objects.equals(transmission, car.transmission) && Objects.equals(color, car.color)
-                && bodyType == car.bodyType && Objects.equals(engineCapacity, car.engineCapacity)
-                && Objects.equals(fuelType, car.fuelType)
+        return Objects.equals(id, car.id) && Objects.equals(vinCode, car.vinCode)
+                && Objects.equals(brand, car.brand) && Objects.equals(model, car.model)
+                && bodyType == car.bodyType && Objects.equals(yearOfIssue, car.yearOfIssue)
+                && Objects.equals(color, car.color) && Objects.equals(engineCapacity, car.engineCapacity)
+                && Objects.equals(fuelType, car.fuelType) && Objects.equals(transmission, car.transmission)
                 && Objects.equals(fuelConsumption, car.fuelConsumption)
-                && Objects.equals(description, car.description) && Objects.equals(options, car.options)
-                && Objects.equals(vinCode, car.vinCode);
+                && Objects.equals(numberDoors, car.numberDoors) && Objects.equals(numberSeats, car.numberSeats)
+                && Objects.equals(mileage, car.mileage) && carClass == car.carClass;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, model, carClass, dateOfIssue, transmission, color, bodyType,
-                engineCapacity, fuelType, fuelConsumption, description, options, vinCode);
+        return Objects.hash(id, vinCode, brand, model, bodyType, yearOfIssue, color, engineCapacity,
+                fuelType, transmission, fuelConsumption, numberDoors, numberSeats, mileage, carClass);
     }
 }

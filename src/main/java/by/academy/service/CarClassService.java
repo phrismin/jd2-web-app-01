@@ -8,8 +8,6 @@ import java.util.Map;
 
 public interface CarClassService {
 
-    Map<String, String> findAllCarClass() throws ServiceException;
-
-
+    List<String> findAllCarClass() throws ServiceException;
 
 }

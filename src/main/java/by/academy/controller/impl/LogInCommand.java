@@ -58,8 +58,8 @@ public class LogInCommand implements Command {
             }
 
             CarClassService carClassService = serviceFactory.getCarClassService();
-            Map<String, String> mapCarClasses = carClassService.findAllCarClass();
-            req.setAttribute("mapCar", mapCarClasses);
+            List<String> allCarClass = carClassService.findAllCarClass();
+            req.setAttribute("carClasses", allCarClass);
 
             req.getRequestDispatcher("controller?command=GO_TO_MAIN_PAGE").forward(req, resp);
 

@@ -9,6 +9,4 @@ public interface FindCarService {
 
     List<Car> findCarsByCarClass(String carClass) throws ServiceException;
 
-    Car findByCar(String carInfo);
-
 }
