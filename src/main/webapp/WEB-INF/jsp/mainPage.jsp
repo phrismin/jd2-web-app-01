@@ -11,7 +11,7 @@
     <h2><c:out value="${param.get(registrationInfo)}"/></h2>
 
 
-    <c:set var="greeting" scope="request" value="${requestScope.}"/>
+    <c:set var="greeting" scope="request" value="${requestScope}"/>
     <c:if test="${greeting != null}" var="testGreeting">
         <h3>
             <c:out value="${greeting.message}"/>
@@ -29,9 +29,18 @@
     <br>
 
     <c:forEach var="carClass" items="${requestScope.carClasses}">
-        <a style="color: antiquewhite" href="controller?command=GO_TO_${carClass.toUpperCase()}_CAR_PAGE">${carClass}</a>
+        <a style="color: antiquewhite"
+           href="controller?command=GO_TO_${carClass.toUpperCase()}_CAR_PAGE">${carClass}</a>
         <br>
     </c:forEach>
+
+    <hr>
+
+    <form action="controller" method="post">
+<%--        <button type="submit">Log Out</button>--%>
+        <input type="hidden" name="command" value="Sign out">
+        <input style="color: #5cc58f" type="submit" value="Sign Out">
+    </form>
 
 </main>
 </body>
