@@ -8,6 +8,19 @@
 </head>
 <body>
 <main>
+    <h2><c:out value="${param.get(registrationInfo)}"/></h2>
+
+
+    <c:set var="greeting" scope="request" value="${requestScope.}"/>
+    <c:if test="${greeting != null}" var="testGreeting">
+        <h3>
+            <c:out value="${greeting.message}"/>
+        </h3>
+    </c:if>
+
+
+    <h2><c:out value="${requestScope.get(registrationInfo)}"/></h2>
+
     <h3>
         Login: <c:out value="${sessionScope.userName}"/>
         <br>

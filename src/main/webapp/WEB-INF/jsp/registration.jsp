@@ -19,7 +19,7 @@
 
         <c:set var="errorMessage" scope="request" value="${param.errorMessage}"/>
         <c:if test="${errorMessage != null}" var="testError">
-            <h3>
+            <h3 style="color: #c53429">
                 <c:out value="${errorMessage}"/>
             </h3>
         </c:if>
@@ -27,6 +27,15 @@
         <input type="text" name="login" placeholder="Username">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
+        <input type="text" name="passpName" placeholder="Passport Name">
+        <input type="text" name="passpSurname" placeholder="Passport Surname">
+        <input type="text" name="passpPatronymic" placeholder="Passport Patronymic">
+        <input type="text" name="passpDateBirth" placeholder="Passport Date Birth">
+        <input type="text" name="passpDateIssue" placeholder="Passport Date Issue">
+        <input type="text" name="passpNumber" placeholder="Passport Number">
+        <input type="text" name="drivLicDateIssue" placeholder="Driver License Date Issue">
+        <input type="text" name="drivLicSerialNumber" placeholder="Driver License Serial Number">
+        <input type="text" name="drivLicCategory" placeholder="Driver License Category">
         <input type="hidden" name="command" value="Sign up">
         <input type="submit" value="Sign Up"/>
         <hr>

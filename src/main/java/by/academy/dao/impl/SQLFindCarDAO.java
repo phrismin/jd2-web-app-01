@@ -24,7 +24,7 @@ public class SQLFindCarDAO implements FindCarDAO {
             "WHERE classes.name = ?";
 
     @Override
-    public List<Car> findCarsByCarClass(String carClass) throws DAOException {
+    public List<Car> findCarsByCarClass(String nameCarClass) throws DAOException {
         Connection con = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -34,7 +34,7 @@ public class SQLFindCarDAO implements FindCarDAO {
             con = connectionPool.takeConnection();
             st = con.prepareStatement(GET_CARS_BY_CAR_CARS);
 
-            st.setString(1, carClass);
+            st.setString(1, nameCarClass);
             rs = st.executeQuery();
 
             while (rs.next()) {
@@ -54,9 +54,9 @@ public class SQLFindCarDAO implements FindCarDAO {
                 car.setNumberSeats(rs.getInt("number_seats"));
                 car.setMileage(rs.getInt("mileage"));
 
-                String nameCarClass = rs.getString("name");
-                CarClass carClass2 = CarClass.valueOf(nameCarClass.toUpperCase(Locale.ROOT));
-                car.setCarClass(carClass2);
+                String stringCarClass = rs.getString("name");
+                CarClass carClass = CarClass.valueOf(stringCarClass.toUpperCase(Locale.ROOT));
+                car.setCarClass(carClass);
 
                 carList.add(car);
             }

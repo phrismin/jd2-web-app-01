@@ -24,6 +24,7 @@ public final class CommandProvider implements Serializable {
     private static final String BUSINESS_CAR_PAGE = "GO_TO_BUSINESS_CAR_PAGE";
     private static final String PREMIUM_CAR_PAGE = "GO_TO_PREMIUM_CAR_PAGE";
     private static final String SUV_CAR_PAGE = "GO_TO_SUV_CAR_PAGE";
+    private static final String BUS_CAR_PAGE = "GO_TO_BUS_CAR_PAGE";
     private static final String CONVERTIBLE_CAR_PAGE = "GO_TO_CONVERTIBLE_CAR_PAGE";
     private static final String EXCLUSIVE_CAR_PAGE = "GO_TO_EXCLUSIVE_CAR_PAGE";
 
@@ -41,6 +42,7 @@ public final class CommandProvider implements Serializable {
         commands.put(BUSINESS_CAR_PAGE, new GoToCarClassPage());
         commands.put(PREMIUM_CAR_PAGE, new GoToCarClassPage());
         commands.put(SUV_CAR_PAGE, new GoToCarClassPage());
+        commands.put(BUS_CAR_PAGE, new GoToCarClassPage());
         commands.put(CONVERTIBLE_CAR_PAGE, new GoToCarClassPage());
         commands.put(EXCLUSIVE_CAR_PAGE, new GoToCarClassPage());
     }

@@ -11,14 +11,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class FindCarServiceImpl implements FindCarService {
-    private static final String BUDGET_CARS = "BUDGET";
-    private static final String MIDDLE_CARS = "MIDDLE";
-    private static final String BUSINESS_CARS = "BUSINESS";
-    private static final String PREMIUM_CARS = "PREMIUM";
-    private static final String SUV_CARS = "SUV";
-    private static final String BUS_CARS = "BUS";
-    private static final String CONVERTIBLE_CARS = "CONVERTIBLE";
-    private static final String EXCLUSIVE_CARS = "EXCLUSIVE";
 
     @Override
     public List<Car> findCarsByCarClass(String carClass) throws ServiceException {

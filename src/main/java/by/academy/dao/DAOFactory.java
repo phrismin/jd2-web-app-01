@@ -12,7 +12,7 @@ public class DAOFactory {
     private final UserDAO userDAO = new SQLUserDAO();
     private final FineDAO fineDAO = new SQLFineDAO();
     private final FindCarDAO findCarDAO = new SQLFindCarDAO();
-    public final FindCarClassDAO findCarClassDAO = new SQLFindCarClassDAO();
+    private final FindCarClassDAO findCarClassDAO = new SQLFindCarClassDAO();
 
     public DAOFactory() {
     }
