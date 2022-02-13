@@ -36,4 +36,24 @@ public class FindCarServiceImpl implements FindCarService {
         return carsByCarClass;
     }
 
+//    @Override
+//    public List<Car> findClassesCarsClass() throws ServiceException {
+//        DAOFactory daoFactory = new DAOFactory();
+//        FindCarDAO findCarDAO = daoFactory.getFindCarDAO();
+//
+//        List<Car> carsByCarClass;
+//
+//        try {
+//
+//            carsByCarClass = findCarDAO.findClassesCars();
+//
+//        } catch (DAOException e) {
+//            throw new ServiceException("Can't found cars", e);
+//        }
+//
+//
+//        return carsByCarClass;
+//        return null;
+//    }
+
 }

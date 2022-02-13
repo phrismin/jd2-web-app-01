@@ -14,7 +14,6 @@ public class GoToIndexPage implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         System.out.println("GoToIndexPage");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/helloPage.jsp");
-        dispatcher.forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/helloPage.jsp").forward(req, resp);
     }
 }

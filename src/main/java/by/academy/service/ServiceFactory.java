@@ -10,7 +10,7 @@ public final class ServiceFactory {
     private final FindUserService findUserService = new FindUserServiceImpl();
     private final FindCarService findCarService = new FindCarServiceImpl();
     private final CarReserveService carReserveService = new CarReserveServiceImpl();
-    private final CarClassService carClassService = new CarClassServiceImpl();
+    private final ClassService classService = new ClassServiceImpl();
 
     private ServiceFactory() {
     }
@@ -35,7 +35,7 @@ public final class ServiceFactory {
         return carReserveService;
     }
 
-    public CarClassService getCarClassService() {
-        return carClassService;
+    public ClassService getClassService() {
+        return classService;
     }
 }

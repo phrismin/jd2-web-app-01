@@ -4,8 +4,8 @@ import by.academy.dao.exception.DAOException;
 
 import java.util.List;
 
-public interface FindCarClassDAO {
+public interface FindClassDAO {
 
-    List<String> findAllCarClass() throws DAOException;
+    List<String> findAllClass() throws DAOException;
 
 }

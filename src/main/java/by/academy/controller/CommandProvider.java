@@ -20,6 +20,7 @@ public final class CommandProvider implements Serializable {
     private static final String INDEX_PAGE = "GO_TO_INDEX_PAGE";
     private static final String MAIN_PAGE = "GO_TO_MAIN_PAGE";
     private static final String ERROR_PAGE = "GO_TO_ERROR_PAGE";
+    private static final String CLASSES_PAGE = "GO_TO_CLASSES_PAGE";
     private static final String BUDGET_CAR_PAGE = "GO_TO_BUDGET_CAR_PAGE";
     private static final String MIDDLE_CAR_PAGE = "GO_TO_MIDDLE_CAR_PAGE";
     private static final String BUSINESS_CAR_PAGE = "GO_TO_BUSINESS_CAR_PAGE";
@@ -39,14 +40,15 @@ public final class CommandProvider implements Serializable {
         commands.put(INDEX_PAGE, new GoToIndexPage());
         commands.put(MAIN_PAGE, new GoToMainPage());
         commands.put(ERROR_PAGE, new GoToErrorPage());
-        commands.put(BUDGET_CAR_PAGE, new GoToCarClassPage());
-        commands.put(MIDDLE_CAR_PAGE, new GoToCarClassPage());
-        commands.put(BUSINESS_CAR_PAGE, new GoToCarClassPage());
-        commands.put(PREMIUM_CAR_PAGE, new GoToCarClassPage());
-        commands.put(SUV_CAR_PAGE, new GoToCarClassPage());
-        commands.put(BUS_CAR_PAGE, new GoToCarClassPage());
-        commands.put(CONVERTIBLE_CAR_PAGE, new GoToCarClassPage());
-        commands.put(EXCLUSIVE_CAR_PAGE, new GoToCarClassPage());
+        commands.put(CLASSES_PAGE, new GoToClassPage());
+        commands.put(BUDGET_CAR_PAGE, new GoToCarPage());
+        commands.put(MIDDLE_CAR_PAGE, new GoToCarPage());
+        commands.put(BUSINESS_CAR_PAGE, new GoToCarPage());
+        commands.put(PREMIUM_CAR_PAGE, new GoToCarPage());
+        commands.put(SUV_CAR_PAGE, new GoToCarPage());
+        commands.put(BUS_CAR_PAGE, new GoToCarPage());
+        commands.put(CONVERTIBLE_CAR_PAGE, new GoToCarPage());
+        commands.put(EXCLUSIVE_CAR_PAGE, new GoToCarPage());
     }
 
     public Command getCommand(String commandName) {

@@ -7,40 +7,38 @@
     <link rel="stylesheet" href="css/mainPage.css">
 </head>
 <body>
+
 <main>
-    <h2><c:out value="${param.get(registrationInfo)}"/></h2>
-
-
-    <c:set var="greeting" scope="request" value="${requestScope}"/>
-    <c:if test="${greeting != null}" var="testGreeting">
-        <h3>
-            <c:out value="${greeting.message}"/>
-        </h3>
-    </c:if>
-
-
-    <h2><c:out value="${requestScope.get(registrationInfo)}"/></h2>
-
-    <h3>
-        Login: <c:out value="${sessionScope.userName}"/>
-        <br>
-        Role: <c:out value="${sessionScope.role}"/>
-    </h3>
-    <br>
-
-    <c:forEach var="carClass" items="${requestScope.carClasses}">
-        <a style="color: antiquewhite"
-           href="controller?command=GO_TO_${carClass.toUpperCase()}_CAR_PAGE">${carClass}</a>
-        <br>
-    </c:forEach>
+    <p>
+        <%@include file="header.jsp" %>
+    </p>
 
     <hr>
 
-    <form action="controller" method="post">
-<%--        <button type="submit">Log Out</button>--%>
-        <input type="hidden" name="command" value="Sign out">
-        <input style="color: #5cc58f" type="submit" value="Sign Out">
-    </form>
+    <h3>
+        <p style="color: #5cc58f">
+            Login: <c:out value="${sessionScope.userName}"/>
+            <br>
+            Role: <c:out value="${sessionScope.role}"/>
+        </p>
+        <br>
+        <hr>
+
+        <h3>
+            <a style="color: antiquewhite" href="controller?command=GO_TO_CLASSES_PAGE">Classes cars</a>
+        </h3>
+
+<%--        <c:forEach var="carClass" items="${requestScope.carClasses}">--%>
+<%--            <a style="color: antiquewhite"--%>
+<%--               href="controller?command=GO_TO_${carClass.toUpperCase()}_CAR_PAGE">${carClass}</a>--%>
+<%--            <br>--%>
+<%--        </c:forEach>--%>
+    </h3>
+
+    <hr>
+    <h3>
+
+    </h3>
 
 </main>
 </body>

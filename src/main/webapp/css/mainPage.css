@@ -7,7 +7,6 @@ body {
     font-family: sans-serif;
 }
 
-
 body main {
     width: 300px;
     padding: 40px;
@@ -19,12 +18,13 @@ body main {
     text-align: center;
 }
 
+
 body main h2 {
     display: inline-block;
     color: #16bb66;
 }
 
-body main h3 {
+body main form h3 {
     display: inline-block;
     color: #9b8c4c;
 }

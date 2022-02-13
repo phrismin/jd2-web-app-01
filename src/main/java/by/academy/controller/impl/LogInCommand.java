@@ -2,8 +2,6 @@ package by.academy.controller.impl;
 
 
 import by.academy.controller.Command;
-import by.academy.dao.entity.CarClass;
-import by.academy.service.CarClassService;
 import by.academy.service.ServiceFactory;
 import by.academy.service.UserService;
 import by.academy.service.exception.ServiceException;
@@ -13,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
 import static by.academy.dao.entity.Role.*;
 
@@ -59,11 +56,11 @@ public class LogInCommand implements Command {
                         "errorMessage=" + ERROR_MESSAGE);
             }
 
-            CarClassService carClassService = serviceFactory.getCarClassService();
-            List<String> allCarClass = carClassService.findAllCarClass();
-            req.setAttribute(CAR_CLASSES, allCarClass);
 
-            req.getRequestDispatcher("controller?command=GO_TO_MAIN_PAGE").forward(req, resp);
+
+            resp.sendRedirect("controller?command=GO_TO_MAIN_PAGE");
+//            req.getRequestDispatcher("controller?command=GO_TO_MAIN_PAGE").forward(req, resp);
+//            req.getRequestDispatcher("/WEB-INF/jsp/mainPage.jsp").forward(req, resp);
 
         } catch (ServiceException e) {
             resp.sendRedirect("controller?command=GO_TO_ERROR_PAGE");

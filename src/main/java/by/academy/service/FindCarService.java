@@ -8,5 +8,6 @@ import java.util.List;
 public interface FindCarService {
 
     List<Car> findCarsByCarClass(String carClass) throws ServiceException;
+//    List<Car> findClassesCarsClass() throws ServiceException;
 
 }

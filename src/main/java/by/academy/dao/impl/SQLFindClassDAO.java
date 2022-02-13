@@ -1,6 +1,6 @@
 package by.academy.dao.impl;
 
-import by.academy.dao.FindCarClassDAO;
+import by.academy.dao.FindClassDAO;
 import by.academy.dao.connection.ConnectionPool;
 import by.academy.dao.connection.ConnectionPoolException;
 import by.academy.dao.exception.DAOException;
@@ -12,14 +12,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SQLFindCarClassDAO implements FindCarClassDAO {
+public class SQLFindClassDAO implements FindClassDAO {
 
     private final ConnectionPool connectionPool = ConnectionPool.getInstance();
 
     private static final String GET_ALL_CAR_CLASS = "SELECT * FROM car_classes ORDER BY id";
 
     @Override
-    public List<String> findAllCarClass() throws DAOException {
+    public List<String> findAllClass() throws DAOException {
         Connection con = null;
         Statement st = null;
         ResultSet rs = null;

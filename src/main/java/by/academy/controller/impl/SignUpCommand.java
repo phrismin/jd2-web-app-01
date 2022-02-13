@@ -2,7 +2,7 @@ package by.academy.controller.impl;
 
 
 import by.academy.controller.Command;
-import by.academy.service.CarClassService;
+import by.academy.service.ClassService;
 import by.academy.service.ServiceFactory;
 import by.academy.service.UserService;
 import by.academy.service.exception.ServiceException;
@@ -59,9 +59,9 @@ public class SignUpCommand implements Command {
 
             req.setAttribute(ROLE, CUSTOMER);
 
-            CarClassService carClassService = serviceFactory.getCarClassService();
-            List<String> allCarClass = carClassService.findAllCarClass();
-            req.setAttribute(CAR_CLASSES, allCarClass);
+            ClassService classService = serviceFactory.getClassService();
+            List<String> classes = classService.findAllClass();
+            req.setAttribute(CAR_CLASSES, classes);
 
             req.getRequestDispatcher("controller?command=GO_TO_MAIN_PAGE&registrationInfo="
                     + REGISTRATION_INFO).forward(req, resp);

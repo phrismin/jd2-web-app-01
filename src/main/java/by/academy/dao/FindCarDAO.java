@@ -13,4 +13,6 @@ public interface FindCarDAO {
 
     List<Car> findCarsByCarClass(String carClass) throws DAOException;
 
+//    List<Car> findClassesCars() throws DAOException;
+
 }

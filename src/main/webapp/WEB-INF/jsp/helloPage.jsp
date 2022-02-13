@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="css/helloPage_registration.css">
 </head>
 <body>
-    <form class="box" action="controller" method="post">
-        <h1>Log in</h1>
-            <input type="text" name="login" placeholder="Username" >
-            <input type="password" name="password" placeholder="Password" >
-            <input type="hidden" name="command" value="Log in">
-            <input type="submit" value="Log In"/>
-            <hr>
-            <h3>
-                <a href="controller?command=GO_TO_REGISTRATION_PAGE">Sign Up</a>
-            </h3>
-        </form>
+<form class="box" action="controller" method="post">
+    <h1>Log in</h1>
+    <input type="text" name="login" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="hidden" name="command" value="Log in">
+    <input type="submit" value="Log In"/>
+    <hr>
+    <h3>
+        <a href="controller?command=GO_TO_REGISTRATION_PAGE">Sign Up</a>
+    </h3>
+</form>
 </body>
 </html>
