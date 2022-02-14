@@ -14,12 +14,14 @@ public final class CommandProvider implements Serializable {
     private static final String LOG_IN_COMMAND = "Log in";
     private static final String SIGN_IN_COMMAND = "Sign up";
     private static final String SIGN_OUT_COMMAND = "Sign out";
+    private static final String BOOK = "Book";
 
     private static final String AUTHORIZATION_PAGE = "GO_TO_AUTHORIZATION_PAGE";
     private static final String REGISTRATION_PAGE = "GO_TO_REGISTRATION_PAGE";
     private static final String INDEX_PAGE = "GO_TO_INDEX_PAGE";
     private static final String MAIN_PAGE = "GO_TO_MAIN_PAGE";
     private static final String ERROR_PAGE = "GO_TO_ERROR_PAGE";
+    private static final String ORDER_PAGE = "GO_TO_ORDER_PAGE";
     private static final String CLASSES_PAGE = "GO_TO_CLASSES_PAGE";
     private static final String BUDGET_CAR_PAGE = "GO_TO_BUDGET_CAR_PAGE";
     private static final String MIDDLE_CAR_PAGE = "GO_TO_MIDDLE_CAR_PAGE";
@@ -34,6 +36,7 @@ public final class CommandProvider implements Serializable {
         commands.put(LOG_IN_COMMAND, new LogInCommand());
         commands.put(SIGN_IN_COMMAND, new SignUpCommand());
         commands.put(SIGN_OUT_COMMAND, new SignOutCommand());
+        commands.put(BOOK, new SignOutCommand());
 
         commands.put(AUTHORIZATION_PAGE, new GoToAuthorizationPage());
         commands.put(REGISTRATION_PAGE, new GoToRegistrationPage());
@@ -41,6 +44,7 @@ public final class CommandProvider implements Serializable {
         commands.put(MAIN_PAGE, new GoToMainPage());
         commands.put(ERROR_PAGE, new GoToErrorPage());
         commands.put(CLASSES_PAGE, new GoToClassPage());
+        commands.put(ORDER_PAGE, new GoToOrderPage());
         commands.put(BUDGET_CAR_PAGE, new GoToCarPage());
         commands.put(MIDDLE_CAR_PAGE, new GoToCarPage());
         commands.put(BUSINESS_CAR_PAGE, new GoToCarPage());

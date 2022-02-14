@@ -56,11 +56,7 @@ public class LogInCommand implements Command {
                         "errorMessage=" + ERROR_MESSAGE);
             }
 
-
-
             resp.sendRedirect("controller?command=GO_TO_MAIN_PAGE");
-//            req.getRequestDispatcher("controller?command=GO_TO_MAIN_PAGE").forward(req, resp);
-//            req.getRequestDispatcher("/WEB-INF/jsp/mainPage.jsp").forward(req, resp);
 
         } catch (ServiceException e) {
             resp.sendRedirect("controller?command=GO_TO_ERROR_PAGE");
