@@ -31,8 +31,8 @@
                 <td>${car.numberDoors}</td><td>${car.numberSeats}</td>
             </tr>
 
-        <form action="controller" method="get">
-            <input type="hidden" name="command" value="<c:out value="${car.id}"/>">
+        <form action="controller" method="post">
+            <input type="hidden" name="command" value=BOOK_CAR="<c:out value="${car.id}"/>">
             <input style="color: #7a6502" type="submit" value="BOOK">
         </form>
         <br>

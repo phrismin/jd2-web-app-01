@@ -14,7 +14,6 @@ public class GoToAuthorizationPage implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         System.out.println("GoToAuthorizationPage");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/authorization.jsp");
-        dispatcher.forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/authorization.jsp").forward(req, resp);
     }
 }

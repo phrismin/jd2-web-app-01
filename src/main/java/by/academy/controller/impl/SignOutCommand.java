@@ -13,12 +13,11 @@ public class SignOutCommand implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         System.out.println("SignOutCommand");
 
-        HttpSession session = req.getSession(false);
-        if (session != null) {
+        HttpSession session = req.getSession();
+        if (session.getAttribute("userName") == null) {
             session.invalidate();
         }
 
         resp.sendRedirect("controller?command=GO_TO_INDEX_PAGE");
-//        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }

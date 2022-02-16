@@ -18,7 +18,6 @@ public class GoToRegistrationPage implements Command {
         Greeting greeting = new Greeting("Welcome to registration");
         req.setAttribute("myObj", greeting);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/registration.jsp");
-        dispatcher.forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/registration.jsp").forward(req, resp);
     }
 }

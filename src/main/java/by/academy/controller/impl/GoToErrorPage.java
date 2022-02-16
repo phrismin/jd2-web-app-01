@@ -13,7 +13,6 @@ public class GoToErrorPage implements Command {
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         System.out.println("GoToErrorPage");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/jsp/errorPage.jsp");
-        dispatcher.forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/jsp/errorPage.jsp").forward(req, resp);
     }
 }
