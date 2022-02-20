@@ -23,7 +23,6 @@
         <url-pattern>/controller</url-pattern>
     </servlet-mapping>
 
-
     <filter>
         <filter-name>CharsetFilter</filter-name>
         <filter-class>by.academy.controller.filter.CharsetFilter</filter-class>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+
 public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
@@ -16,6 +17,7 @@ public class AuthFilter implements Filter {
 
         HttpSession session = req.getSession();
         if (session == null && session.getAttribute("userName") == null) {
+            session.setAttribute("errorMessage", "Please, Log in");
             resp.sendRedirect("controller?command=GO_TO_INDEX_PAGE");
         } else {
             filterChain.doFilter(req, resp);

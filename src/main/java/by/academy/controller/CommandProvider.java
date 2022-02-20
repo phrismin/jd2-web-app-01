@@ -14,7 +14,9 @@ public final class CommandProvider implements Serializable {
     private static final String LOG_IN_COMMAND = "Log in";
     private static final String SIGN_IN_COMMAND = "Sign up";
     private static final String SIGN_OUT_COMMAND = "Sign out";
-    private static final String BOOK = "Book";
+    private static final String CHANGE_LOCALE_RU_COMMAND = "ru";
+    private static final String CHANGE_LOCALE_EN_COMMAND = "en";
+    private static final String BOOK = "book";
 
     private static final String AUTHORIZATION_PAGE = "GO_TO_AUTHORIZATION_PAGE";
     private static final String REGISTRATION_PAGE = "GO_TO_REGISTRATION_PAGE";
@@ -36,6 +38,8 @@ public final class CommandProvider implements Serializable {
         commands.put(LOG_IN_COMMAND, new LogInCommand());
         commands.put(SIGN_IN_COMMAND, new SignUpCommand());
         commands.put(SIGN_OUT_COMMAND, new SignOutCommand());
+        commands.put(CHANGE_LOCALE_RU_COMMAND, new ChangeLocaleCommand());
+        commands.put(CHANGE_LOCALE_EN_COMMAND, new ChangeLocaleCommand());
         commands.put(BOOK, new SignOutCommand());
 
         commands.put(AUTHORIZATION_PAGE, new GoToAuthorizationPage());
