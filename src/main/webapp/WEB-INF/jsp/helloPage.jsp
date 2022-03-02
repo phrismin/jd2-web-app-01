@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Hello Page</title>
-    <link rel="stylesheet" href="css/helloPage_registration.css">
+    <%--    <link rel="stylesheet" href="css/helloPage_registration.css">--%>
 
     <fmt:setLocale value="${sessionScope.locale}"/>
     <fmt:setBundle basename="local" var="loc"/>
@@ -15,11 +15,12 @@
     <fmt:message bundle="${loc}" key="locale.locbutton.name.ru" var="ru_button"/>
     <fmt:message bundle="${loc}" key="locale.locbutton.name.signup" var="sign_button"/>
     <fmt:message bundle="${loc}" key="locale.locbutton.name.login" var="login_button"/>
-</head>
+    <fmt:message bundle="${loc}" key="locale.name.login" var="login_name"/>
+</head>git
 
 <body>
 <form class="box" action="controller" method="post">
-    <h1>Log in</h1>
+    <h1>${login_name}</h1>
     <input type="text" name="login" placeholder="Username">
     <input type="password" name="password" placeholder="Password">
     <input type="hidden" name="command" value="Log in">

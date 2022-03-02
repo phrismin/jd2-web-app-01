@@ -7,12 +7,15 @@ public final class ServiceFactory {
     private static final ServiceFactory instance = new ServiceFactory();
 
     private final UserService userService = new UserServiceImpl();
-    private final FindUserService findUserService = new FindUserServiceImpl();
     private final FindCarService findCarService = new FindCarServiceImpl();
-    private final CarReserveService carReserveService = new CarReserveServiceImpl();
     private final ClassService classService = new ClassServiceImpl();
+    private final OrderService orderService = new OrderServiceImpl();
 
     private ServiceFactory() {
+    }
+
+    public OrderService getOrderService() {
+        return orderService;
     }
 
     public static ServiceFactory getInstance() {
@@ -23,19 +26,13 @@ public final class ServiceFactory {
         return userService;
     }
 
-    public FindUserService getFindUserService() {
-        return findUserService;
-    }
-
     public FindCarService getFindCarService() {
         return findCarService;
     }
 
-    public CarReserveService getCarReserveService() {
-        return carReserveService;
-    }
 
     public ClassService getClassService() {
         return classService;
     }
+
 }

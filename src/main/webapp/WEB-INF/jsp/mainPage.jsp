@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Main Page</title>
-<%--    <link rel="stylesheet" href="css/mainPage.css">--%>
+    <%--    <link rel="stylesheet" href="css/mainPage.css">--%>
 </head>
 <body>
 
@@ -16,14 +16,6 @@
     <hr>
 
     <h3>
-        <p style="color: #00572a">
-            Login: <c:out value="${sessionScope.userName}"/>
-            <br>
-            Role: <c:out value="${sessionScope.role}"/>
-        </p>
-    </h3>
-
-    <h3>
         <a style="color: #563000" href="controller?command=GO_TO_CLASSES_PAGE">Classes cars</a>
     </h3>
     <hr>
@@ -32,7 +24,6 @@
             <a style="color: #004960" href="controller?command=GO_TO_ORDER_PAGE">My orders</a>
         </c:if>
     </h3>
-
 
 
 </main>

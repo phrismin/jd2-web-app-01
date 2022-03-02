@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-import static by.academy.dao.entity.Role.CUSTOMER;
+import static by.academy.entity.Role.CUSTOMER;
 
 public class SignUpCommand implements Command {
     private static final String ERROR_MESSAGE = "Please, check your data";

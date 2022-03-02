@@ -1,7 +1,7 @@
 package by.academy.controller.impl;
 
 import by.academy.controller.Command;
-import by.academy.dao.entity.Car;
+import by.academy.entity.Car;
 import by.academy.service.FindCarService;
 import by.academy.service.ServiceFactory;
 import by.academy.service.exception.ServiceException;

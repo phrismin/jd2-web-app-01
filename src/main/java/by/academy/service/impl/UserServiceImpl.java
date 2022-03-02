@@ -2,9 +2,9 @@ package by.academy.service.impl;
 
 import by.academy.dao.DAOFactory;
 import by.academy.dao.UserDAO;
-import by.academy.dao.entity.Role;
+import by.academy.entity.Role;
 import by.academy.dao.exception.DAOException;
-import by.academy.dao.entity.User;
+import by.academy.entity.User;
 import by.academy.service.exception.ServiceException;
 import by.academy.service.UserService;
 import org.mindrot.jbcrypt.BCrypt;
@@ -21,9 +21,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String authorization(String login, String password) throws ServiceException {
-         if (!validationLogin(login)) {
-             throw new ServiceException("Please, check your login");
-         }
+        if (!validationLogin(login)) {
+            throw new ServiceException("Please, check your login");
+        }
 
         if (!validationPassword(login)) {
             throw new ServiceException("Please, check your password");

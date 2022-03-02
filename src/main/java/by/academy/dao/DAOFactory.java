@@ -1,28 +1,33 @@
 package by.academy.dao;
 
-import by.academy.dao.impl.SQLFindCarDAO;
-import by.academy.dao.impl.SQLFindClassDAO;
-import by.academy.dao.impl.SQLFineDAO;
-import by.academy.dao.impl.SQLUserDAO;
+import by.academy.dao.impl.*;
 
-public class DAOFactory {
-
+public final class DAOFactory {
     private static final DAOFactory instance = new DAOFactory();
 
+    private final BookCarDAO bookCarDAO = new SQLBookCarDAO();
     private final UserDAO userDAO = new SQLUserDAO();
-    private final FineDAO fineDAO = new SQLFineDAO();
     private final FindCarDAO findCarDAO = new SQLFindCarDAO();
     private final FindClassDAO findClassDAO = new SQLFindClassDAO();
+    private final OrderDAO orderDAO = new SQLOrderDAO();
 
     public DAOFactory() {
+    }
+
+    public OrderDAO getOrderDAO() {
+        return orderDAO;
     }
 
     public static DAOFactory getInstance() {
         return instance;
     }
 
-    public FineDAO getFineDAO() {
-        return fineDAO;
+    public BookCarDAO getBookCarDAO() {
+        return bookCarDAO;
+    }
+
+    public FindClassDAO getFindClassDAO() {
+        return findClassDAO;
     }
 
     public FindCarDAO getFindCarDAO() {

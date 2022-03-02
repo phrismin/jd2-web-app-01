@@ -16,7 +16,8 @@ public final class CommandProvider implements Serializable {
     private static final String SIGN_OUT_COMMAND = "Sign out";
     private static final String CHANGE_LOCALE_RU_COMMAND = "ru";
     private static final String CHANGE_LOCALE_EN_COMMAND = "en";
-    private static final String BOOK = "book";
+    private static final String SELECT_CAR_COMMAND = "select";
+    private static final String BOOK_CAR_COMMAND = "book";
 
     private static final String AUTHORIZATION_PAGE = "GO_TO_AUTHORIZATION_PAGE";
     private static final String REGISTRATION_PAGE = "GO_TO_REGISTRATION_PAGE";
@@ -33,6 +34,7 @@ public final class CommandProvider implements Serializable {
     private static final String BUS_CAR_PAGE = "GO_TO_BUS_CAR_PAGE";
     private static final String CONVERTIBLE_CAR_PAGE = "GO_TO_CONVERTIBLE_CAR_PAGE";
     private static final String EXCLUSIVE_CAR_PAGE = "GO_TO_EXCLUSIVE_CAR_PAGE";
+    private static final String BOOKING_PAGE = "GO_TO_BOOKING_PAGE";
 
     public CommandProvider() {
         commands.put(LOG_IN_COMMAND, new LogInCommand());
@@ -40,7 +42,8 @@ public final class CommandProvider implements Serializable {
         commands.put(SIGN_OUT_COMMAND, new SignOutCommand());
         commands.put(CHANGE_LOCALE_RU_COMMAND, new ChangeLocaleCommand());
         commands.put(CHANGE_LOCALE_EN_COMMAND, new ChangeLocaleCommand());
-        commands.put(BOOK, new SignOutCommand());
+        commands.put(SELECT_CAR_COMMAND, new SelectCarCommand());
+        commands.put(BOOK_CAR_COMMAND, new BookCarCommand());
 
         commands.put(AUTHORIZATION_PAGE, new GoToAuthorizationPage());
         commands.put(REGISTRATION_PAGE, new GoToRegistrationPage());
@@ -57,7 +60,9 @@ public final class CommandProvider implements Serializable {
         commands.put(BUS_CAR_PAGE, new GoToCarPage());
         commands.put(CONVERTIBLE_CAR_PAGE, new GoToCarPage());
         commands.put(EXCLUSIVE_CAR_PAGE, new GoToCarPage());
+        commands.put(BOOKING_PAGE, new GoToBookPage());
     }
+
 
     public Command getCommand(String commandName) {
         Command command = commands.get(commandName);

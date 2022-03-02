@@ -1,16 +1,19 @@
-package by.academy.dao.entity;
+package by.academy.entity;
 
 import java.io.Serializable;
 import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Objects;
 
-public class Reservation implements Serializable {
+public class Order implements Serializable {
     private static final long serialVersionUID = 9L;
 
     private Long id;
     private String orderNumber;
-    private Time startReservTime;
-    private Time endReservTime;
+    private Timestamp reservTime;
+    private LocalDate startReservDate;
+    private LocalDate endReservDate;
     private Integer startMileage;
     private Integer endMileage;
     private String description;
@@ -18,7 +21,15 @@ public class Reservation implements Serializable {
     private Car car;
     private ReservationStatus reservationStatus;
 
-    public Reservation() {
+    public Order() {
+    }
+
+    public Timestamp getReservTime() {
+        return reservTime;
+    }
+
+    public void setReservTime(Timestamp reservTime) {
+        this.reservTime = reservTime;
     }
 
     public Long getId() {
@@ -37,20 +48,20 @@ public class Reservation implements Serializable {
         this.orderNumber = orderNumber;
     }
 
-    public Time getStartReservTime() {
-        return startReservTime;
+    public LocalDate getStartReservDate() {
+        return startReservDate;
     }
 
-    public void setStartReservTime(Time startReservTime) {
-        this.startReservTime = startReservTime;
+    public void setStartReservDate(LocalDate startReservDate) {
+        this.startReservDate = startReservDate;
     }
 
-    public Time getEndReservTime() {
-        return endReservTime;
+    public LocalDate getEndReservDate() {
+        return endReservDate;
     }
 
-    public void setEndReservTime(Time endReservTime) {
-        this.endReservTime = endReservTime;
+    public void setEndReservDate(LocalDate endReservDate) {
+        this.endReservDate = endReservDate;
     }
 
     public Integer getStartMileage() {
@@ -105,10 +116,10 @@ public class Reservation implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Reservation that = (Reservation) o;
+        Order that = (Order) o;
         return Objects.equals(id, that.id) && Objects.equals(orderNumber, that.orderNumber)
-                && Objects.equals(startReservTime, that.startReservTime)
-                && Objects.equals(endReservTime, that.endReservTime)
+                && Objects.equals(startReservDate, that.startReservDate)
+                && Objects.equals(endReservDate, that.endReservDate)
                 && Objects.equals(startMileage, that.startMileage)
                 && Objects.equals(endMileage, that.endMileage)
                 && Objects.equals(description, that.description) && Objects.equals(user, that.user)
@@ -117,7 +128,7 @@ public class Reservation implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, orderNumber, startReservTime, endReservTime, startMileage,
+        return Objects.hash(id, orderNumber, startReservDate, endReservDate, startMileage,
                 endMileage, description, user, car, reservationStatus);
     }
 }

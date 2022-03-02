@@ -52,11 +52,12 @@ body {
     border-radius: 20px;
     transition: 0.3s;
 }
+
 .box input[type="text"]:focus,
 .box input[type="email"]:focus,
 .box input[type="password"]:focus {
     width: 255px;
-    border-color: #5fdb57 ;
+    border-color: #5fdb57;
 }
 
 .box input[type="submit"] {
@@ -83,9 +84,11 @@ body {
     color: #bdc3c7;
     padding-bottom: 3px;
 }
+
 .box h3 a:visited {
     color: #bdc3c7;
 }
+
 .box h3 a:hover {
     color: #5fdb57;
     transition: 0.3s;

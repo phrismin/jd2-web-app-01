@@ -1,14 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Order Page</title>
 </head>
 <body>
 <main>
-    <p>
-        <%@include file="header.jsp" %>
-    </p>
-
+    <div>
+        <p>
+            <%@include file="header.jsp" %>
+        </p>
+    </div>
 
 
 </main>

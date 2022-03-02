@@ -1,9 +1,8 @@
 package by.academy.controller.impl;
 
 import by.academy.controller.Command;
-import by.academy.dao.entity.Greeting;
+import by.academy.entity.Greeting;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static by.academy.dao.entity.Role.*;
+import static by.academy.entity.Role.*;
 
 public class LogInCommand implements Command {
     private static final String LOGIN = "login";
@@ -21,8 +21,6 @@ public class LogInCommand implements Command {
     private static final String ERROR_MESSAGE = "Please, check your login, email and password";
     private static final String ROLE = "role";
     private static final String CAR_CLASSES = "carClasses";
-//    private static final String CAR_CLASSES = "carClass=budget&carClass=middle&carClass=business" +
-//            "&carClass=premium&carClass=suv&carClass=convertible&carClass=exclusive";
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

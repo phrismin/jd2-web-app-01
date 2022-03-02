@@ -4,8 +4,8 @@ import by.academy.dao.connection.ConnectionPool;
 import by.academy.dao.connection.ConnectionPoolException;
 import by.academy.dao.UserDAO;
 import by.academy.dao.exception.DAOException;
-import by.academy.dao.entity.Role;
-import by.academy.dao.entity.User;
+import by.academy.entity.Role;
+import by.academy.entity.User;
 
 import java.sql.*;
 import java.time.LocalDate;

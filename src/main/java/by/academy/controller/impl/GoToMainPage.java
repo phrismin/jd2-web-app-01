@@ -15,7 +15,6 @@ public class GoToMainPage implements Command {
         System.out.println("GoToMainPage");
 
         StringBuffer requestURL = req.getRequestURL();
-        System.out.println("URL " + requestURL);
 
         req.getSession().setAttribute(URL, requestURL);
 

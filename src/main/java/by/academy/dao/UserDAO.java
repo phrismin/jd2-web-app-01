@@ -1,8 +1,7 @@
 package by.academy.dao;
 
-import by.academy.dao.entity.Role;
 import by.academy.dao.exception.DAOException;
-import by.academy.dao.entity.User;
+import by.academy.entity.User;
 
 import java.time.LocalDate;
 

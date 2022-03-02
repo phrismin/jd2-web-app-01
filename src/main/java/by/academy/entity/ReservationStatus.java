@@ -1,4 +1,4 @@
-package by.academy.dao.entity;
+package by.academy.entity;
 
 public enum ReservationStatus {
     NEW, APPROVE, RESERVE, REJECT;

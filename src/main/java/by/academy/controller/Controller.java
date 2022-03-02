@@ -1,11 +1,14 @@
 package by.academy.controller;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+@WebServlet(urlPatterns = "/", name = "controller")
 public class Controller extends HttpServlet {
     public static final long serialVersionUID = 1L;
 
