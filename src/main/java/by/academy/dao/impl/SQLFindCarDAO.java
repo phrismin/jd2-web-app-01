@@ -6,6 +6,8 @@ import by.academy.dao.connection.ConnectionPoolException;
 import by.academy.dao.exception.DAOException;
 import by.academy.entity.Car;
 import by.academy.entity.CarClass;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class SQLFindCarDAO implements FindCarDAO {
+    private static final Logger logger = LogManager.getLogger(SQLFindCarDAO.class);
     private static final ConnectionPool connectionPool = ConnectionPool.getInstance();
 
     private static final String GET_CARS_BY_CAR_CARS = "SELECT * FROM rent_cars_db.cars cars " +
@@ -64,8 +67,10 @@ public class SQLFindCarDAO implements FindCarDAO {
             }
 
         } catch (ConnectionPoolException e) {
+            logger.error("Statement isn't closed.", e);
             throw new DAOException("Database server connection problem", e);
         } catch (SQLException e) {
+            logger.error("Car isn't exist", e);
             throw new DAOException("Car isn't exist", e);
         } finally {
             connectionPool.closeConnection(con, st, rs);
@@ -106,8 +111,10 @@ public class SQLFindCarDAO implements FindCarDAO {
             }
 
         } catch (ConnectionPoolException e) {
+            logger.error("Database server connection problem", e);
             throw new DAOException("Database server connection problem", e);
         } catch (SQLException e) {
+            logger.error("Car isn't exist", e);
             throw new DAOException("Car isn't exist", e);
         } finally {
             connectionPool.closeConnection(con, st, rs);

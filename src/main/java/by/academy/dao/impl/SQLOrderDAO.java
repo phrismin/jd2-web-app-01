@@ -5,13 +5,15 @@ import by.academy.dao.connection.ConnectionPool;
 import by.academy.dao.connection.ConnectionPoolException;
 import by.academy.dao.exception.DAOException;
 import by.academy.entity.Order;
-import by.academy.entity.Role;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.Locale;
 
 public class SQLOrderDAO implements OrderDAO {
     private final ConnectionPool connectionPool = ConnectionPool.getInstance();
+    private static final Logger logger = LogManager.getLogger(SQLOrderDAO.class);
 
     private static final String INSERT_ORDER = "INSERT INTO orders (" +
             "order_number, reserv_time, start_reserv_date, end_reserv_date, start_mileage, " +
@@ -41,8 +43,10 @@ public class SQLOrderDAO implements OrderDAO {
             int executeUpdate = st.executeUpdate();
 
         } catch (ConnectionPoolException e) {
+            logger.error("Database server connection has problem", e);
             throw new DAOException("Database server connection has problem", e);
         } catch (SQLException e) {
+            logger.error("Failed to create the order", e);
             throw new DAOException("Failed to create the order", e);
         } finally {
             connectionPool.closeConnection(con, st, rs);

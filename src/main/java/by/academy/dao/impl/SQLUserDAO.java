@@ -6,6 +6,8 @@ import by.academy.dao.UserDAO;
 import by.academy.dao.exception.DAOException;
 import by.academy.entity.Role;
 import by.academy.entity.User;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -13,6 +15,7 @@ import java.util.Locale;
 
 public class SQLUserDAO implements UserDAO {
     private final ConnectionPool connectionPool = ConnectionPool.getInstance();
+    private static final Logger logger = LogManager.getLogger(SQLUserDAO.class);
 
     private static final String GET_USER_BY_LOGIN_AND_PASSWORD =
             "SELECT * FROM rent_cars_db.users WHERE login = ? AND password = ?";
@@ -51,8 +54,10 @@ public class SQLUserDAO implements UserDAO {
             }
 
         } catch (ConnectionPoolException e) {
+            logger.error("Database server connection has problem", e);
             throw new DAOException("Database server connection has problem", e);
         } catch (SQLException e) {
+            logger.error("User isn't exist", e);
             throw new DAOException("User isn't exist", e);
         } finally {
             connectionPool.closeConnection(con, st, rs);
@@ -85,6 +90,7 @@ public class SQLUserDAO implements UserDAO {
 
                 int affectedRows = st.executeUpdate();
                 if (affectedRows == 0) {
+                    logger.error("Creating user failed, no rows affected.");
                     throw new DAOException("Creating user failed, no rows affected.");
                 }
 
@@ -92,6 +98,7 @@ public class SQLUserDAO implements UserDAO {
                 if (rs.next()) {
                     idUser = rs.getInt(1);
                 } else {
+                    logger.error("Creating user failed, no ID obtained.");
                     throw new DAOException("Creating user failed, no ID obtained.");
                 }
 
@@ -115,12 +122,15 @@ public class SQLUserDAO implements UserDAO {
 
             } catch (SQLException e) {
                 con.rollback();
+                logger.error("Unable to insert user's data or user's information", e);
                 throw new DAOException("Unable to insert user's data or user's information", e);
             }
 
         } catch (SQLException e) {
+            logger.error("Transaction is failed", e);
             throw new DAOException("Transaction is failed", e);
         } catch (ConnectionPoolException e) {
+            logger.error("Database server connection has problem", e);
             throw new DAOException("Database server connection has problem", e);
         } finally {
             connectionPool.closeConnection(con, st, rs);

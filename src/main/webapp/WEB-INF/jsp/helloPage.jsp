@@ -16,7 +16,7 @@
     <fmt:message bundle="${loc}" key="locale.locbutton.name.signup" var="sign_button"/>
     <fmt:message bundle="${loc}" key="locale.locbutton.name.login" var="login_button"/>
     <fmt:message bundle="${loc}" key="locale.name.login" var="login_name"/>
-</head>git
+</head>
 
 <body>
 <form class="box" action="controller" method="post">
